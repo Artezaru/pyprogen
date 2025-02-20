@@ -1,33 +1,25 @@
-# pyprogen
+# {package_name}
 
 ## Description
 
-Generating Python project from Command Line Interface.
-
-```
-pyprogen
-```
-
-![pyprogen CLI]{pyprogen/ressources/pyprogen_CLI.png}
-
 ## Author
 
-- Name: Artezaru
-- Email: artezaru.github@proton.me
-- GitHub: [artezaru.github@proton.me](https://github.com/Artezaru/pyprogen.git)
+- Name: {author_name}
+- Email: {author_email}
+- GitHub: [{author_email}]({author_github})
 
 ## Installation
 
 Install with pip
 
 ```
-pip install git+https://github.com/Artezaru/pyprogen.git
+pip install git+{author_github}
 ```
 
 Clone with git
 
 ```
-git clone https://github.com/Artezaru/pyprogen.git
+git clone {author_github}
 ```
 
 ## Documentation
@@ -70,7 +62,7 @@ make html
 3. Open the documentation in a web browser
 
 ```
-open docs/build/latex/pyprogen.pdf
+open docs/build/latex/{package_name}.pdf
 ```
 
 ## License

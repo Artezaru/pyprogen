@@ -1,12 +1,11 @@
-def main() -> None:
-    """
-    This method contains the script to run if the user enter the name of the package on the command line. 
+from .cli import cli
+import curses
 
-    .. code-block:: console
-        pyprogen
-        
+def main():
+    r"""
+    Main function to run the CLI application from the command line.
     """
-    raise NotImplementedError("This command is not implemented yet.")
-
+    curses.wrapper(cli)
+    
 if __name__ == "__main__":
     main()

@@ -1,0 +1,204 @@
+{
+    "HELP" : "This is the structure of the project. The key 'directories' contains the directories to create and the key 'files' contains the files to create. For each file or directory, the key 'path' is a list of strings that represent the path of the file or directory. The key 'if_doc' is a boolean that indicates if the file or directory is related to the documentation. The key 'if_git' is a boolean that indicates if the file or directory is related to git. The key 'if_venv' is a boolean that indicates if the file or directory is related to the virtual environment.",
+
+
+
+    "directories" : {
+        "package_dir" : {
+            "path" : "{package_name}",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "package_ressources_dir" : {
+            "path" : "{package_name}/ressources",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_dir" : {
+            "path" : "docs",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_source_dir" : {
+            "path" : "docs/source",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_api_doc_dir" : {
+            "path" : "docs/source/api_doc",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_usage_doc_dir" : {
+            "path" : "docs/source/usage_doc",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_build_dir" : {
+            "path" : "docs/build",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "tests_dir" : {
+            "path" : "tests",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "venv_dir" : {
+            "path" : "venv",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : true
+        },
+
+        "laboratory_dir" : {
+            "path" : "laboratory",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "examples_dir" : {
+            "path" : "examples",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        }
+    },
+
+
+
+
+
+    "files" : {
+        "package_init_file" : {
+            "path" : "{package_name}/__init__.py",
+            "template" : "package_init.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "package_version_file" : {
+            "path" : "{package_name}/__version__.py",
+            "template" : "package_version.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "package_main_file" : {
+            "path" : "{package_name}/__main__.py",
+            "template" : "package_main.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "package_ressources_init_file" : {
+            "path" : "{package_name}/ressources/__init__.py",
+            "template" : "package_ressources_init.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_conf_file" : {
+            "path" : "docs/source/conf.py",
+            "template" : "documentation_conf.txt",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_index_file" : {
+            "path" : "docs/source/index.rst",
+            "template" : "documentation_index.txt",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_api_file" : {
+            "path" : "docs/source/api.rst",
+            "template" : "documentation_api.txt",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_usage_file" : {
+            "path" : "docs/source/usage.rst",
+            "template" : "documentation_usage.txt",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_makefile" : {
+            "path" : "Makefile",
+            "template" : "documentation_makefile.txt",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "project_license_file" : {
+            "path" : "LICENSE",
+            "template" : "Apache_LICENSE.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "package_setup_file" : {
+            "path" : "setup.py",
+            "template" : "package_setup.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "project_readme_file" : {
+            "path" : "README.md",
+            "template" : "project_readme.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "gitignore_file" : {
+            "path" : ".gitignore",
+            "template" : "gitignore.txt",
+            "if_doc" : false,
+            "if_git" : true,
+            "if_venv" : false
+        },
+
+        "package_requirements_file" : {
+            "path" : "requirements.txt",
+            "template" : "package_requirements.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        }
+
+    }
+
+}

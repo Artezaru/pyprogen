@@ -1,4 +1,4 @@
-Welcome to pyprogen's documentation!
+Welcome to {package_name}'s documentation!
 =========================================================================================
 
 Description of the package
@@ -24,11 +24,11 @@ The documentation is divided into the following sections:
 Author
 ------
 
-The package ``pyprogen`` was created by the following author:
+The package ``{package_name}`` was created by the following author:
 
-- **Name**: Artezaru
-- **Email**: artezaru.github@proton.me
-- **GitHub**: [Artezaru](https://github.com/Artezaru/pyprogen.git)
+- **Name**: {author_name}
+- **Email**: {author_email}
+- **GitHub**: [{author_name}]({author_github})
 
 
 License

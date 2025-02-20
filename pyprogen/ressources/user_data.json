@@ -1,0 +1,10 @@
+{
+    "author_name": null,
+    "author_email": null,
+    "author_github": null,
+    "package_name": null,
+    "doc": true,
+    "git": true,
+    "github": false,
+    "venv": true
+}
