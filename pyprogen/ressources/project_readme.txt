@@ -6,7 +6,7 @@
 
 - Name: {author_name}
 - Email: {author_email}
-- GitHub: [{author_email}]({author_github})
+- GitHub: {author_github}
 
 ## Installation
 

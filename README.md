@@ -14,7 +14,7 @@ pyprogen
 
 - Name: Artezaru
 - Email: artezaru.github@proton.me
-- GitHub: [artezaru.github@proton.me](https://github.com/Artezaru/pyprogen.git)
+- GitHub: https://github.com/Artezaru/pyprogen.git
 
 ## Installation
 
