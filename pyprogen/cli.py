@@ -1,6 +1,7 @@
 import curses
 from .user_data_binder import UserDataBinder
 from .create_structure import create_structure
+import os
 
 def cli(stdscr):
     r"""
