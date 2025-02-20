@@ -38,6 +38,10 @@ setup(
     ],
     python_requires='>=3.6',  # Minimum Python version required
     install_requires=read_requirements(),
+    include_package_data=True,  # Include package data as specified in MANIFEST.in
+    package_data={
+        'pyprogen': ['ressources/*'],  # Include all files in ressources/
+    },
     entry_points={
         'console_scripts': [
             'pyprogen = pyprogen.__main__:main',  # Define the pyprogen command to run __main__.main()
