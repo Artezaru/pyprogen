@@ -306,6 +306,7 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.user_data_binder</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserDataBinder</span>
 
+
 <div class="viewcode-block" id="create_structure">
 <a class="viewcode-back" href="../../api_doc/create_structure.html#pyprogen.create_structure">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_structure</span><span class="p">(</span><span class="n">user_data</span><span class="p">:</span> <span class="n">UserDataBinder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -341,21 +342,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># 0. Check if the user data contains the information needed and if the package name is valid (no spaces or special characters) and available.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Checking user data ... &quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_email</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;author_name and author_email must be provided&quot;</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github</span> <span class="ow">and</span> <span class="p">(</span><span class="n">user_data</span><span class="o">.</span><span class="n">author_github</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">git</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;author_github must be provided and git must be True if github is True&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">ready_to_create</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The user data must contain the necessary information (author_name, author_email, package_name)&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid package name&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Package name already exists&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_github</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">user_data</span><span class="o">.</span><span class="n">author_github</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># Ensure the format string works correctly</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github</span><span class="p">:</span>
+        <span class="c1"># Default values for formatting</span>
+        <span class="n">user_data</span><span class="o">.</span><span class="n">github_username</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span>
+        <span class="n">user_data</span><span class="o">.</span><span class="n">github_email</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_email</span>
+        <span class="n">user_data</span><span class="o">.</span><span class="n">github_repo</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://github.com/</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">github_username</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">.git&quot;</span>
+        <span class="n">user_data</span><span class="o">.</span><span class="n">gitpage_doc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">github_username</span><span class="si">}</span><span class="s2">.github.io/</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="c1"># 1. Get the structure</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Loading structure ... &quot;</span><span class="p">)</span>
@@ -370,7 +365,10 @@
     <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;package_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span>
     <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;author_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span>
     <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;author_email&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_email</span>
-    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;author_github&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_github</span>
+    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;github_username&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github_username</span>
+    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;github_email&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github_email</span>
+    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;github_repo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github_repo</span>
+    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;gitpage_doc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">gitpage_doc</span>
 
     <span class="c1"># 3. Load the key/path for directories and files to format the strings in the templates</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">structure</span><span class="p">[</span><span class="s2">&quot;directories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -386,6 +384,8 @@
     <span class="c1"># 4. Create the directories </span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="p">)</span>
+    <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;parent_dir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parent_dir</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Creating directories ... &quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">structure</span><span class="p">[</span><span class="s2">&quot;directories&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="c1"># Check if the directory should be created</span>
@@ -421,16 +421,7 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
-    <span class="c1"># 6. Setting up git</span>
-    <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">git</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Setting up git ... &quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git config user.name </span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git config user.email </span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">author_email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git init&quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add .&quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git commit -m &quot;Initial commit&quot;&#39;</span><span class="p">)</span>
-
-    <span class="c1"># 7. Create the virtual environment</span>
+    <span class="c1"># 6. Create the virtual environment</span>
     <span class="n">pip_path</span> <span class="o">=</span> <span class="s2">&quot;pip&quot;</span> <span class="c1"># Default pip</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">venv</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Creating virtual environment ... &quot;</span><span class="p">)</span>
@@ -442,17 +433,45 @@
         <span class="c1"># Activate the virtual environment and install the required packages</span>
         <span class="n">pip_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">venv_path</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">)</span>
 
-    <span class="c1"># 8. Installing the package for the documentation</span>
+    <span class="c1"># 7. Installing the package for the documentation</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Installing documentation tools ... &quot;</span><span class="p">)</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">pip_path</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;sphinx&quot;</span><span class="p">])</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">pip_path</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;pydata_sphinx_theme&quot;</span><span class="p">])</span>
+    
+    <span class="c1"># 8. Setting up git</span>
+    <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">git</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Setting up git ... &quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git init&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add -A .&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git commit -m &quot;Initial commit&quot;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_html_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git checkout --orphan gh-pages&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git reset --hard&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git commit --allow-empty -m &#39;Initializing gh-pages branch&#39;&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_build_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git checkout master&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;rm -rf html&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git worktree add html gh-pages&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
 
     <span class="c1"># 9. Setting the connection to GitHub</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Setting up GitHub ... &quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;git remote add origin </span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">author_github</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git config user.name </span><span class="si">{github_username}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git config user.email </span><span class="si">{github_email}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git remote add origin </span><span class="si">{github_repo}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git push origin master&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;make clean&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;make html&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_html_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add A- .&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git commit -m &#39;Update documentation&#39;&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git push origin gh-pages&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Done!&quot;</span><span class="p">)</span></div>
 

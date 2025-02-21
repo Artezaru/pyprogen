@@ -321,6 +321,24 @@
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyprogen.</span></span><span class="sig-name descname"><span class="pre">UserDataBinder</span></span><a class="reference internal" href="../_modules/pyprogen/user_data_binder.html#UserDataBinder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.UserDataBinder" title="Link to this definition">#</a></dt>
 <dd><p>Class to store user data.</p>
 <p>The user data is stored in the user_data.json file in the pyprogen.ressources package.</p>
+<p>The user_data.json file contains the following structure:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;author_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;author_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;github_username&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;github_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;github_repo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;gitpage_doc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;package_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;doc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;git&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;github&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;venv&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
 <section id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h2>
 <dl class="simple">
@@ -328,7 +346,13 @@
 </dd>
 <dt>author_email<span class="classifier">Optional[str]</span></dt><dd><p>The email of the author of the project.</p>
 </dd>
-<dt>author_github<span class="classifier">Optional[str]</span></dt><dd><p>The GitHub project page of the author of the project.</p>
+<dt>github_username<span class="classifier">Optional[str]</span></dt><dd><p>The GitHub username of the author of the project.</p>
+</dd>
+<dt>github_email<span class="classifier">Optional[str]</span></dt><dd><p>The GitHub email of the author of the project.</p>
+</dd>
+<dt>github_repo<span class="classifier">Optional[str]</span></dt><dd><p>The GitHub project page of the author of the project.</p>
+</dd>
+<dt>gitpage_doc<span class="classifier">Optional[str]</span></dt><dd><p>The GitHub page of the project.</p>
 </dd>
 <dt>package_name<span class="classifier">Optional[str]</span></dt><dd><p>The name of the package to create</p>
 </dd>
@@ -348,20 +372,6 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the author_email property to.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pyprogen.UserDataBinder.author_github">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">author_github</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyprogen.UserDataBinder.author_github" title="Link to this definition">#</a></dt>
-<dd><p>Getter and setter for the author_github property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the author_github property to.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
@@ -431,23 +441,66 @@
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="pyprogen.UserDataBinder.github_email">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">github_email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyprogen.UserDataBinder.github_email" title="Link to this definition">#</a></dt>
+<dd><p>Getter and setter for the github_email property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the github_email property to.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyprogen.UserDataBinder.github_repo">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">github_repo</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyprogen.UserDataBinder.github_repo" title="Link to this definition">#</a></dt>
+<dd><p>Getter and setter for the github_repo property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the github_repo property to.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyprogen.UserDataBinder.github_username">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">github_username</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyprogen.UserDataBinder.github_username" title="Link to this definition">#</a></dt>
+<dd><p>Getter and setter for the github_username property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the github_username property to.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyprogen.UserDataBinder.gitpage_doc">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gitpage_doc</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyprogen.UserDataBinder.gitpage_doc" title="Link to this definition">#</a></dt>
+<dd><p>Getter and setter for the gitpage_doc property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The value to set the gitpage_doc property to.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pyprogen.UserDataBinder.load_user_data">
 <span class="sig-name descname"><span class="pre">load_user_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pyprogen/user_data_binder.html#UserDataBinder.load_user_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.UserDataBinder.load_user_data" title="Link to this definition">#</a></dt>
 <dd><p>Load user data from the user_data.json file in the pyprogen.ressources package.</p>
-<p>The user_data.json file contains the following structure:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;author_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;author_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;author_github&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;package_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;doc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;git&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;github&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;venv&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>FileNotFoundError</strong> – If the user_data.json file is not found.</p>
@@ -465,6 +518,28 @@
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>TypeError</strong> – If the value is not a string and is not None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyprogen.UserDataBinder.ready_to_create">
+<span class="sig-name descname"><span class="pre">ready_to_create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pyprogen/user_data_binder.html#UserDataBinder.ready_to_create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.UserDataBinder.ready_to_create" title="Link to this definition">#</a></dt>
+<dd><p>Check if the user data is ready to create the package.</p>
+<p>The package can be created if the following conditions are met:</p>
+<ul class="simple">
+<li><p>The author name, author email, and package name are provided.</p></li>
+<li><p>The package name is a valid identifier.</p></li>
+<li><p>The package name does not already exist.</p></li>
+<li><p>If github is True, the github_repo, gitpage_doc, github_author, and github_email are provided and git is True.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>bool</em> – True if the user data is ready to create the package, False otherwise.</p></li>
+<li><p><em>str</em> – The error message if the user data is not ready to create the package.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,14 +612,18 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder"><code class="docutils literal notranslate"><span class="pre">UserDataBinder</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.author_email"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.author_email</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.author_github"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.author_github</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.author_name"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.author_name</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.doc"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.doc</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.dump_user_data"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.dump_user_data()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.git"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.git</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.github"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.github</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.github_email"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.github_email</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.github_repo"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.github_repo</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.github_username"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.github_username</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.gitpage_doc"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.gitpage_doc</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.load_user_data"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.load_user_data()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.package_name"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.package_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.ready_to_create"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.ready_to_create()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.UserDataBinder.venv"><code class="docutils literal notranslate"><span class="pre">UserDataBinder.venv</span></code></a></li>
 </ul>
 </li>
