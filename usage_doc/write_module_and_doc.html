@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pyprogen.create_structure &#8212; pyprogen 1.1.0 documentation</title>
+    <title>Write Modules and Documentation &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api_doc/create_structure';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/write_module_and_doc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pyprogen.UserDataBinder" href="user_data_binder.html" />
-    <link rel="prev" title="pyprogen.cli" href="cli.html" />
+    <link rel="next" title="Using Git to Commit, Push Code &amp; Build Documentation" href="use_git.html" />
+    <link rel="prev" title="Using Virtual Environments" href="activate_venv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -124,14 +124,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -217,14 +217,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -265,9 +265,14 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="cli.html">pyprogen.cli</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">pyprogen.create_structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user_data_binder.html">pyprogen.UserDataBinder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -309,9 +314,9 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API Reference</a></li>
+    <li class="breadcrumb-item"><a href="../usage.html" class="nav-link">Usage</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyprogen.create_structure</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Write Modules and Documentation</span></li>
   </ul>
 </nav>
 </div>
@@ -328,39 +333,128 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="pyprogen-create-structure">
-<h1>pyprogen.create_structure<a class="headerlink" href="#pyprogen-create-structure" title="Link to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyprogen.create_structure">
-<span class="sig-prename descclassname"><span class="pre">pyprogen.</span></span><span class="sig-name descname"><span class="pre">create_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.user_data_binder.UserDataBinder"><span class="pre">UserDataBinder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pyprogen/create_structure.html#create_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.create_structure" title="Link to this definition">#</a></dt>
-<dd><p>Create the project structure according to the user data and the structure.json file.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.git is True, the user must have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on their machine.
-To install git, please refer to the official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.github is True, the user must have a GitHub account and a repository must be created on GitHub.
-The computer must be linked to the GitHub account otherwise the proccess will freeze because the user can’t enter the GitHub credentials during the process.</p>
-</div>
-<p>It is recommended to use the CLI to create the project structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_data</strong> (<a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.UserDataBinder"><em>UserDataBinder</em></a>) – The user data object.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> – If the user data does not contain the necessary information (author_name, author_email, package_name).
-    If the user data contains github=True and (author_github is None or git=False).
-    If the package name is not valid.
-    If the package name already exists.</p></li>
-<li><p><strong>FileNotFoundError</strong> – If the structure.json file is not found.</p></li>
+  <section id="write-modules-and-documentation">
+<h1>Write Modules and Documentation<a class="headerlink" href="#write-modules-and-documentation" title="Link to this heading">#</a></h1>
+<p>This guide explains how to create new modules and document them using <strong>Sphinx</strong> with <strong>Numpydoc</strong> style.</p>
+<p>Before starting, ensure that you have:</p>
+<ul class="simple">
+<li><p>Created a new project (see <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a>)</p></li>
+<li><p>Activated the virtual environment (see <a class="reference internal" href="activate_venv.html"><span class="doc">Using Virtual Environments</span></a>)</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
+<section id="writing-modules">
+<h2>Writing Modules<a class="headerlink" href="#writing-modules" title="Link to this heading">#</a></h2>
+<p>To add new functionality, create Python files inside your package directory (e.g., <cite>&lt;package&gt;/</cite>) and document them using <strong>Numpydoc</strong> style.</p>
+<p>### Example: Adding a Function</p>
+<ol class="arabic simple">
+<li><p><strong>Create</strong> a file (e.g., <cite>add.py</cite>) and define your function:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add two integers.</span>
 
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : int</span>
+<span class="sd">        First number to add.</span>
+<span class="sd">    b : int</span>
+<span class="sd">        Second number to add.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    int</span>
+<span class="sd">        Sum of the two numbers.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If either input is not an integer.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; add(2, 3)</span>
+<span class="sd">    5</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inputs must be integers.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Expose</strong> the function in <cite>__init__.py</cite>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.add</span><span class="w"> </span><span class="kn">import</span> <span class="n">add</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>### Using Relative Imports</p>
+<p>When importing functions from other modules within your package, use <strong>relative imports</strong>. For example, if <cite>add.py</cite> needs to import <cite>multiply</cite> from <cite>multiply.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.multiply</span><span class="w"> </span><span class="kn">import</span> <span class="n">multiply</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-documentation">
+<h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Link to this heading">#</a></h2>
+<p>Use <strong>Sphinx</strong> and <strong>Numpydoc</strong> to document your project. The project is pre-configured to support:</p>
+<ul class="simple">
+<li><p><strong>Autodoc</strong> for generating documentation from docstrings.</p></li>
+<li><p><strong>Numpydoc</strong> for parsing Numpy-style docstrings.</p></li>
+<li><p><strong>LaTeX</strong> rendering for math equations.</p></li>
+</ul>
+<p>&gt; See [Sphinx Docs](<a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a>) and [Numpydoc Docs](<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">https://numpydoc.readthedocs.io/en/latest/format.html</a>) for more details.</p>
+<p>### Documenting Functions</p>
+<ol class="arabic simple">
+<li><p><strong>Create an `.rst` file</strong> in <cite>docs/source/api_doc/</cite> for each module. Example for <cite>add.py</cite>:</p></li>
+</ol>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">add</span>
+<span class="gh">===</span>
+
+<span class="p">..</span> <span class="ow">autofunction</span><span class="p">::</span> <span class="nt">&lt;package_name&gt;</span>.add
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Update the API Reference</strong> in <cite>docs/source/api.rst</cite>:</p></li>
+</ol>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">API Reference</span>
+<span class="gh">=============</span>
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+    <span class="nc">:maxdepth:</span> 1
+
+    ./api_doc/add
+</pre></div>
+</div>
+</section>
+<section id="building-the-documentation">
+<h2>Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Activate</strong> the virtual environment.</p></li>
+<li><p><strong>Build</strong> the HTML documentation:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make html</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Open the documentation:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docs/build/html/index.html</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use <strong>Numpydoc</strong> format for all docstrings.</p></li>
+<li><p>Write <strong>clear examples</strong> and document <strong>edge cases</strong>.</p></li>
+<li><p>Use <strong>relative imports</strong> within the package.</p></li>
+<li><p>Keep the <strong>API reference</strong> updated after adding modules.</p></li>
+<li><p>Exclude the <cite>venv/</cite> directory from version control.</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>To learn more about <strong>building documentation</strong> and pushing to <strong>GitHub</strong>, see the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section.</p>
+</section>
 </section>
 
 
@@ -374,20 +468,20 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cli.html"
+       href="activate_venv.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">pyprogen.cli</p>
+        <p class="prev-next-title">Using Virtual Environments</p>
       </div>
     </a>
     <a class="right-next"
-       href="user_data_binder.html"
+       href="use_git.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pyprogen.UserDataBinder</p>
+        <p class="prev-next-title">Using Git to Commit, Push Code &amp; Build Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -410,7 +504,11 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.create_structure"><code class="docutils literal notranslate"><span class="pre">create_structure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-modules">Writing Modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 </ul>
   </nav></div>
 
@@ -418,7 +516,7 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api_doc/create_structure.rst.txt"
+      <li><a href="../_sources/usage_doc/write_module_and_doc.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

@@ -1,32 +1,114 @@
-Using Git
-=========
+Using Git to Commit, Push Code & Build Documentation
+====================================================
 
-Once you have created a new project by the CLI, (see :doc:`quick_start` section). 
-You can start using Git to version your project.
+This guide explains how to **commit**, **push** your **package**, and **build** and **deploy** its **documentation** using **Git** and **GitHub Pages**.
 
 .. seealso::
 
-    Also, to learn how to use Git, refer to the `Git Documentation <https://git-scm.com/doc>`_.
-    A short guide is available below for the most common commands.
+    For more details on Git commands, refer to the `Git Documentation <https://git-scm.com/doc>`_.
 
-To save the current state of your project, you can run the following commands in the root of the project:
+Before you begin, ensure you have updating the version of your package in ``__version__.py`` (see :doc:`project_structure` section).
 
-.. code-block:: console
+Committing and Pushing the Package
+----------------------------------
 
-    git add -A .
-    git commit -m "<message>"
+1. **Stage all changes** in the project directory:
 
-When your project is ready to be shared to Github, you can push it to a remote repository by running the following command:
+   .. code-block:: console
 
-.. code-block:: console
+       git add -A .
 
-    git push origin master
+2. **Commit** the changes with a descriptive message:
 
-I recommend creating a new branch for each new feature or bug fix.
-You can also set the version of the project in the ``__version__.py`` file.
-This new version will be saved in the ``setup.py`` file and in the documentation.
+   .. code-block:: console
 
-.. code-block:: python
+       git commit -m "Add new feature / Fix bug / Update version"
 
-    __version__ = "1.0.2"
+3. **Push** to the remote repository:
 
+   .. code-block:: console
+
+       git push origin master
+
+   > **Note:** Replace `master` with `main` if that's your default branch.
+
+Building and Pushing Documentation
+----------------------------------
+
+After updating your code and documentation, follow these steps to **build** and **deploy** the documentation using **Sphinx** and **GitHub Pages**.
+
+### 1. Build the Documentation
+
+1. **Activate** the virtual environment:
+
+   .. code-block:: console
+
+       source venv/bin/activate  # On Unix/MacOS
+       venv\Scripts\activate.bat  # On Windows
+
+2. **Install** Sphinx and required dependencies (if not already installed):
+
+   .. code-block:: console
+
+       pip install sphinx pydata_sphinx_theme
+
+3. **Clean** any previous build artifacts:
+
+   .. code-block:: console
+
+       make clean
+
+4. **Build** the HTML documentation:
+
+   .. code-block:: console
+
+       make html
+
+   The generated documentation will be located in `docs/build/html/`.
+
+### 2. Deploy Documentation to GitHub Pages
+
+1. **Navigate** to the built documentation:
+
+   .. code-block:: console
+
+       cd docs/build/html
+
+2. **Check out** the `gh-pages` branch (create if needed):
+
+   .. code-block:: console
+
+       git checkout gh-pages
+
+3. **Stage** and **commit** the documentation:
+
+   .. code-block:: console
+
+       git add -A .
+       git commit -m "Update documentation"
+
+4. **Push** to the `gh-pages` branch:
+
+   .. code-block:: console
+
+       git push origin gh-pages
+
+5. **Return** to the project root:
+
+   .. code-block:: console
+
+       cd ../../..
+
+Best Practices
+--------------
+
+- Use **clear commit messages** for both code and documentation.
+- Always run **`make clean`** before **`make html`** to avoid stale builds.
+- Keep documentation updated with **each new release**.
+- **Tag** stable versions for easy tracking.
+- Use **separate branches** (e.g., `gh-pages`) for hosting documentation.
+
+Next Steps
+----------
+
+- To learn how to **write modules and document them**, see :doc:`write_module_and_doc`.

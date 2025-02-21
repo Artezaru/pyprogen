@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pyprogen.create_structure &#8212; pyprogen 1.1.0 documentation</title>
+    <title>Setting Up Git Manually &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api_doc/create_structure';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/git_setup';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pyprogen.UserDataBinder" href="user_data_binder.html" />
-    <link rel="prev" title="pyprogen.cli" href="cli.html" />
+    <link rel="next" title="Setting Up GitHub Manually" href="github_setup.html" />
+    <link rel="prev" title="Setting Manually the Documentation" href="documentation_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -124,14 +124,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -217,14 +217,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -265,9 +265,14 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="cli.html">pyprogen.cli</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">pyprogen.create_structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user_data_binder.html">pyprogen.UserDataBinder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting Up Git Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -309,9 +314,9 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API Reference</a></li>
+    <li class="breadcrumb-item"><a href="../usage.html" class="nav-link">Usage</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyprogen.create_structure</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Setting Up Git Manually</span></li>
   </ul>
 </nav>
 </div>
@@ -328,39 +333,87 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="pyprogen-create-structure">
-<h1>pyprogen.create_structure<a class="headerlink" href="#pyprogen-create-structure" title="Link to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyprogen.create_structure">
-<span class="sig-prename descclassname"><span class="pre">pyprogen.</span></span><span class="sig-name descname"><span class="pre">create_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.user_data_binder.UserDataBinder"><span class="pre">UserDataBinder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pyprogen/create_structure.html#create_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.create_structure" title="Link to this definition">#</a></dt>
-<dd><p>Create the project structure according to the user data and the structure.json file.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.git is True, the user must have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on their machine.
-To install git, please refer to the official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></p>
+  <section id="setting-up-git-manually">
+<h1>Setting Up Git Manually<a class="headerlink" href="#setting-up-git-manually" title="Link to this heading">#</a></h1>
+<p>If the Git repository is not set up automatically, you can configure it manually by following these steps.</p>
+<section id="installing-git">
+<h2>Installing Git<a class="headerlink" href="#installing-git" title="Link to this heading">#</a></h2>
+<p>First, ensure that <strong>Git</strong> is installed on your system. If it is not installed, follow the official guide:
+<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git Installation Guide</a></p>
+</section>
+<section id="initializing-the-git-repository">
+<h2>Initializing the Git Repository<a class="headerlink" href="#initializing-the-git-repository" title="Link to this heading">#</a></h2>
+<p>Navigate to the <strong>root</strong> of your project and initialize a new Git repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git init</span>
+</pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.github is True, the user must have a GitHub account and a repository must be created on GitHub.
-The computer must be linked to the GitHub account otherwise the proccess will freeze because the user can’t enter the GitHub credentials during the process.</p>
+<p>Next, add a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file to the root directory to specify files and folders that Git should ignore.
+You can find a template for this file in the <a class="reference internal" href="../ressources.html"><span class="doc">Ressources files</span></a> section.</p>
+<p>Add all project files to the repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add -A .</span>
+</pre></div>
 </div>
-<p>It is recommended to use the CLI to create the project structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_data</strong> (<a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.UserDataBinder"><em>UserDataBinder</em></a>) – The user data object.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> – If the user data does not contain the necessary information (author_name, author_email, package_name).
-    If the user data contains github=True and (author_github is None or git=False).
-    If the package name is not valid.
-    If the package name already exists.</p></li>
-<li><p><strong>FileNotFoundError</strong> – If the structure.json file is not found.</p></li>
+<p>Then, make your initial commit:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git commit -m &quot;Initial commit&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="hosting-documentation-on-github-pages">
+<h2>Hosting Documentation on GitHub Pages<a class="headerlink" href="#hosting-documentation-on-github-pages" title="Link to this heading">#</a></h2>
+<p>To host your documentation on <strong>GitHub Pages</strong>, you need to create a dedicated branch called <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>. Follow these steps:</p>
+<ol class="arabic">
+<li><p><strong>Navigate</strong> to the <cite>docs/build/html</cite> directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd docs/build/html</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create an orphan branch</strong> (a branch with no commit history) for GitHub Pages:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout --orphan gh-pages</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Reset</strong> the branch to remove any existing files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git reset --hard</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Make an initial empty commit</strong> on the <cite>gh-pages</cite> branch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git commit --allow-empty -m &quot;Initial commit&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Return</strong> to the parent directory (<cite>docs/build</cite>) and switch back to the <cite>master</cite> branch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout master</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Remove</strong> the existing <cite>html</cite> folder to prepare for linking the <cite>gh-pages</cite> branch:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rm -rf html</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Link</strong> the <cite>gh-pages</cite> branch to the <cite>html</cite> folder using Git worktree:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git worktree add -f html gh-pages</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="project-branches-overview">
+<h2>Project Branches Overview<a class="headerlink" href="#project-branches-overview" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <strong>master</strong> branch will serve as the main branch for your project’s code.</p></li>
+<li><p>The <strong>gh-pages</strong> branch will host the generated documentation on <strong>GitHub Pages</strong>.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To connect the local Git repository to a remote <strong>GitHub</strong> repository, follow the steps in the <a class="reference internal" href="github_setup.html"><span class="doc">Setting Up GitHub Manually</span></a> section.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information on using Git in your project and pushing updates to the <cite>gh-pages</cite> branch, see the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section.</p>
+</div>
+</section>
 </section>
 
 
@@ -374,20 +427,20 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cli.html"
+       href="documentation_setup.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">pyprogen.cli</p>
+        <p class="prev-next-title">Setting Manually the Documentation</p>
       </div>
     </a>
     <a class="right-next"
-       href="user_data_binder.html"
+       href="github_setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pyprogen.UserDataBinder</p>
+        <p class="prev-next-title">Setting Up GitHub Manually</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -410,7 +463,10 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.create_structure"><code class="docutils literal notranslate"><span class="pre">create_structure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-git">Installing Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-the-git-repository">Initializing the Git Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hosting-documentation-on-github-pages">Hosting Documentation on GitHub Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-branches-overview">Project Branches Overview</a></li>
 </ul>
   </nav></div>
 
@@ -418,7 +474,7 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api_doc/create_structure.rst.txt"
+      <li><a href="../_sources/usage_doc/git_setup.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

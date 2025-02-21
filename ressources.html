@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ressources files &#8212; pyprogen 1.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=fc837d61"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ressources';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Using Git to Commit, Push Code &amp; Build Documentation" href="usage_doc/use_git.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pyprogen 1.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Ressources files
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="usage.html">
+    Usage
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Ressources files
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Ressources files</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ressources-files">
+<h1>Ressources files<a class="headerlink" href="#ressources-files" title="Link to this heading">#</a></h1>
+<p>This section contains the template files to restore a broken package.
+The structure of the complete package is described in the <a class="reference internal" href="usage_doc/project_structure.html"><span class="doc">Project Structure</span></a> section.</p>
+<p>Il the various files please replace the following placeholders:</p>
+<ul class="simple">
+<li><p><cite>{author_name}</cite>: The name(s) of the author of the package. (ex: Artezaru)</p></li>
+<li><p><cite>{author_email}</cite>: The email of the author of the package. (ex: <a class="reference external" href="mailto:artezaru&#46;github&#37;&#52;&#48;proton&#46;me">artezaru<span>&#46;</span>github<span>&#64;</span>proton<span>&#46;</span>me</a>)</p></li>
+<li><p><cite>{github_repo}</cite>: The GitHub repository of the package. (ex: <a class="github reference external" href="https://github.com/Artezaru/pyprogen.git">Artezaru/pyprogen.git</a>)</p></li>
+<li><p><cite>{gitpage_doc}</cite>: The GitHub page of the package. (ex: <a class="reference external" href="https://artezaru.github.io/pyprogen/">https://artezaru.github.io/pyprogen/</a>)</p></li>
+<li><p><cite>{package_name}</cite>: The name of the package. (ex: pyprogen)</p></li>
+<li><p><cite>{*_dir}</cite>: The path of the corresponding directory.</p></li>
+<li><p><cite>{*_file}</cite>: The path of the corresponding file.</p></li>
+</ul>
+<p>Also replace the <cite>{{</cite> and <cite>}}</cite> by <cite>{</cite> and <cite>}</cite> respectively.</p>
+<section id="init-py">
+<h2>__init__.py<a class="headerlink" href="#init-py" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.__version__</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;__version__&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="main-py">
+<h2>__main__.py<a class="headerlink" href="#main-py" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method contains the script to run if the user enter the name of the package on the command line. </span>
+
+<span class="sd">    .. code-block:: console</span>
+<span class="sd">        {package_name}</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This command is not implemented yet.&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="version-py">
+<h2>__version__.py<a class="headerlink" href="#version-py" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="readme-md">
+<h2>Readme.md<a class="headerlink" href="#readme-md" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># {package_name}
+
+## Description
+
+## Author
+
+- Name: {author_name}
+- Email: {author_email}
+- GitHub: {github_repo}
+- Documentation: {gitpage_doc}
+
+## Installation
+
+Install with pip
+
+```
+pip install git+{github_repo}
+```
+
+Clone with git
+
+```
+git clone {github_repo}
+```
+
+## License
+
+See LICENSE
+</pre></div>
+</div>
+</section>
+<section id="setup-py">
+<h2>setup.py<a class="headerlink" href="#setup-py" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
+
+<span class="c1"># 0. Read the contents of your README.md file to use as the long description</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_long_description</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{project_readme_file}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">long_description</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">long_description</span>
+
+<span class="c1"># 1. Read the contents of your requirements.txt file.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_requirements</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{package_requirements_file}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="c1"># Remove comments and empty lines</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)]</span>
+
+<span class="c1"># 2. Read the version in the __version__.py file</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_version</span><span class="p">():</span>
+    <span class="n">version_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{package_version_file}</span><span class="s2">&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">version_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> 
+    <span class="k">return</span> <span class="nb">locals</span><span class="p">()[</span><span class="s2">&quot;__version__&quot;</span><span class="p">]</span>
+
+<span class="c1"># 3. Setup the package</span>
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{package_name}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="n">read_version</span><span class="p">(),</span> <span class="c1"># Update the version as necessary</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{author_name}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{author_email}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Short description of the package</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">read_long_description</span><span class="p">(),</span> <span class="c1"># Update the long description as necessary</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">&quot;text/markdown&quot;</span><span class="p">,</span>  <span class="c1"># Format of the long description</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{github_repo}</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># URL to the package&#39;s homepage</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>  <span class="c1"># Automatically find packages in the directory</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;License :: OSI Approved :: Apache Software License&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">python_requires</span><span class="o">=</span><span class="s1">&#39;&gt;=3.6&#39;</span><span class="p">,</span>  <span class="c1"># Minimum Python version required</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="n">read_requirements</span><span class="p">(),</span>
+    <span class="n">include_package_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Include package data as specified in MANIFEST.in</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="p">{{</span>
+        <span class="s1">&#39;</span><span class="si">{package_name}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ressources/*&#39;</span><span class="p">],</span>  <span class="c1"># Include all files in ressources/</span>
+    <span class="p">}},</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{{</span>
+        <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;</span><span class="si">{package_name}</span><span class="s1"> = </span><span class="si">{package_name}</span><span class="s1">.__main__:main&#39;</span><span class="p">,</span>  <span class="c1"># Define the {package_name} command to run __main__.main()</span>
+        <span class="p">],</span>
+    <span class="p">}},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="requirements-txt">
+<h2>requirements.txt<a class="headerlink" href="#requirements-txt" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+<section id="license">
+<h2>LICENSE<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Copyright</span> <span class="p">{</span><span class="n">package_year</span><span class="p">}</span> <span class="p">{</span><span class="n">author_name</span><span class="p">}</span>
+
+<span class="n">Licensed</span> <span class="n">under</span> <span class="n">the</span> <span class="n">Apache</span> <span class="n">License</span><span class="p">,</span> <span class="n">Version</span> <span class="mf">2.0</span> <span class="p">(</span><span class="n">the</span> <span class="s2">&quot;License&quot;</span><span class="p">);</span>
+<span class="n">you</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">use</span> <span class="n">this</span> <span class="n">file</span> <span class="k">except</span> <span class="ow">in</span> <span class="n">compliance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">License</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">may</span> <span class="n">obtain</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">the</span> <span class="n">License</span> <span class="n">at</span>
+
+    <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">LICENSE</span><span class="o">-</span><span class="mf">2.0</span>
+
+<span class="n">Unless</span> <span class="n">required</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span> <span class="ow">or</span> <span class="n">agreed</span> <span class="n">to</span> <span class="ow">in</span> <span class="n">writing</span><span class="p">,</span> <span class="n">software</span>
+<span class="n">distributed</span> <span class="n">under</span> <span class="n">the</span> <span class="n">License</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="n">on</span> <span class="n">an</span> <span class="s2">&quot;AS IS&quot;</span> <span class="n">BASIS</span><span class="p">,</span>
+<span class="n">WITHOUT</span> <span class="n">WARRANTIES</span> <span class="n">OR</span> <span class="n">CONDITIONS</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">either</span> <span class="n">express</span> <span class="ow">or</span> <span class="n">implied</span><span class="o">.</span>
+<span class="n">See</span> <span class="n">the</span> <span class="n">License</span> <span class="k">for</span> <span class="n">the</span> <span class="n">specific</span> <span class="n">language</span> <span class="n">governing</span> <span class="n">permissions</span> <span class="ow">and</span>
+<span class="n">limitations</span> <span class="n">under</span> <span class="n">the</span> <span class="n">License</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="conf-py">
+<h2>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This file is used to configure the documentation of the package</span>
+<span class="c1"># It is used by the Sphinx documentation generator to generate the documentation</span>
+<span class="c1"># The documentation is generated in the docs folder of the package</span>
+<span class="c1"># The documentation is generated in HTML and LaTeX format</span>
+
+<span class="c1"># For the full list of built-in configuration values, see the documentation:</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/configuration.html</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information</span>
+<span class="c1"># https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output</span>
+
+<span class="c1"># 0. Import the necessary modules</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../..&quot;</span><span class="p">))</span>
+
+<span class="c1"># 1. Set the project informations</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_version</span><span class="p">():</span>
+    <span class="n">version_file</span> <span class="o">=</span> <span class="s2">&quot;../../</span><span class="si">{package_version_file}</span><span class="s2">&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">version_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span> 
+    <span class="k">return</span> <span class="nb">locals</span><span class="p">()[</span><span class="s2">&quot;__version__&quot;</span><span class="p">]</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{package_name}</span><span class="s2">&quot;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{package_year}</span><span class="s2">-%Y, </span><span class="si">{author_name}</span><span class="s2">&quot;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{author_name}</span><span class="s2">&quot;</span>
+<span class="n">release</span> <span class="o">=</span> <span class="n">read_version</span><span class="p">()</span>
+
+<span class="c1"># 2. General configuration</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydata_sphinx_theme</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;pydata_sphinx_theme&quot;</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span> <span class="c1"># Automatically document the code</span>
+    <span class="s2">&quot;sphinx.ext.viewcode&quot;</span><span class="p">,</span> <span class="c1"># Add links to the code</span>
+    <span class="s2">&quot;sphinx.ext.napoleon&quot;</span><span class="p">,</span> <span class="c1"># Support for Google and Numpy docstring formats</span>
+    <span class="s2">&quot;sphinx.ext.githubpages&quot;</span><span class="p">,</span> <span class="c1"># Publish the documentation on GitHub</span>
+<span class="p">]</span>
+
+<span class="n">napoleon_google_docstring</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">napoleon_numpy_docstring</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># 3. Options for Latex output</span>
+
+<span class="n">latex_elements</span> <span class="o">=</span> <span class="p">{{</span>
+    <span class="s2">&quot;papersize&quot;</span><span class="p">:</span> <span class="s2">&quot;a4paper&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pointsize&quot;</span><span class="p">:</span> <span class="s2">&quot;10pt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;preamble&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">}}</span>
+
+<span class="n">latex_documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{package_name}</span><span class="s2">.tex&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{package_name}</span><span class="s2"> Documentation&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;</span><span class="si">{author_name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;manual&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="makefile">
+<h2>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 0. Setting directories for the documentation
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = {documentation_source_dir}
+BUILDDIR      = {documentation_build_dir}
+
+# 1. Default help command to list available Sphinx options
+help:
+	@$(SPHINXBUILD) -M help &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# 2. Generate HTML documentation
+html:
+	$(SPHINXBUILD) -b html $(SOURCEDIR) $(BUILDDIR)/html
+
+# 3. Generate LaTeX PDF documentation
+latexpdf:
+	$(SPHINXBUILD) -b latex $(SOURCEDIR) $(BUILDDIR)/latex
+	cd $(BUILDDIR)/latex &amp;&amp; pdflatex {package_name}.tex &amp;&amp; pdflatex {package_name}.tex
+
+# 4. Clean the documentation
+clean:
+	@$(SPHINXBUILD) -M clean &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O);
+	cd $(BUILDDIR); git worktree add -f html gh-pages
+</pre></div>
+</div>
+</section>
+<section id="index-rst">
+<h2>index.rst<a class="headerlink" href="#index-rst" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Welcome to {package_name}&#39;s documentation!
+=========================================================================================
+
+Description of the package
+--------------------------
+
+
+Contents
+--------
+
+The documentation is divided into the following sections:
+
+- **API Reference**: This section contains the documentation of the package&#39;s API.
+- **Usage**: This section contains the documentation of how to use the package.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   ./api
+   ./usage
+
+
+Author
+------
+
+The package ``{package_name}`` was created by the following author:
+
+- **Name**: {author_name}
+- **Email**: {author_email}
+- **GitHub**: [{author_name}]({github_repo})
+- **Documentation** [{author_name}]({gitpage_doc})
+
+
+License
+-------
+
+Please refer to the [LICENSE] file for the license of the package.
+</pre></div>
+</div>
+</section>
+<section id="api-rst">
+<h2>api.rst<a class="headerlink" href="#api-rst" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>API Reference
+==============
+
+The package ``{package_name}`` is composed of the following functions, classes, and modules:
+
+DOCUMENTATION NOT IMPLEMENTED YET
+
+To learn how to use the package effectively, refer to the documentation :doc:`../usage`.
+</pre></div>
+</div>
+</section>
+<section id="usage-rst">
+<h2>usage.rst<a class="headerlink" href="#usage-rst" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span>
+<span class="o">==============</span>
+</pre></div>
+</div>
+</section>
+<section id="gitignore">
+<h2>.gitignore<a class="headerlink" href="#gitignore" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python cache files</span>
+<span class="n">__pycache__</span><span class="o">/</span>
+<span class="o">*.</span><span class="n">py</span><span class="p">[</span><span class="n">cod</span><span class="p">]</span>
+<span class="o">*.</span><span class="n">pyo</span>
+<span class="o">*.</span><span class="n">pyd</span>
+
+<span class="c1"># Virtual environment</span>
+<span class="n">env</span><span class="o">/</span>
+<span class="n">venv</span><span class="o">/</span>
+<span class="o">*</span><span class="n">_pyvenv</span><span class="o">.</span><span class="n">cfg</span>
+<span class="o">*.</span><span class="n">egg</span><span class="o">-</span><span class="n">info</span><span class="o">/</span>
+
+<span class="c1"># Laboratory</span>
+<span class="n">laboratory</span><span class="o">/</span>
+
+<span class="c1"># Sphinx documentation</span>
+<span class="n">build</span><span class="o">/</span>
+
+<span class="c1"># Jupyter Notebook checkpoints</span>
+<span class="o">.</span><span class="n">ipynb_checkpoints</span><span class="o">/</span>
+
+<span class="c1"># IDE files</span>
+<span class="o">.</span><span class="n">idea</span><span class="o">/</span>
+<span class="o">.</span><span class="n">vscode</span><span class="o">/</span>
+<span class="o">*.</span><span class="n">sublime</span><span class="o">-</span><span class="n">project</span>
+<span class="o">*.</span><span class="n">sublime</span><span class="o">-</span><span class="n">workspace</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="usage_doc/use_git.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Using Git to Commit, Push Code &amp; Build Documentation</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-py">__init__.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py">__main__.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-py">__version__.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-md">Readme.md</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-py">setup.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">requirements.txt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">LICENSE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conf-py">conf.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-rst">index.rst</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-rst">api.rst</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-rst">usage.rst</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore">.gitignore</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ressources.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025-2025, Artezaru.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

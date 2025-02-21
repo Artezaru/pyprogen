@@ -12,6 +12,7 @@ The documentation is divided into the following sections:
 
 - **API Reference**: This section contains the documentation of the package's API.
 - **Usage**: This section contains the documentation of how to use the package.
+- **Ressources**: This section contains the template files to restore a broken package.
 
 .. toctree::
    :maxdepth: 1
@@ -19,6 +20,7 @@ The documentation is divided into the following sections:
 
    ./api
    ./usage
+   ./ressources
 
 
 Author

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pyprogen.create_structure &#8212; pyprogen 1.1.0 documentation</title>
+    <title>Setting Up GitHub Manually &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api_doc/create_structure';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/github_setup';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pyprogen.UserDataBinder" href="user_data_binder.html" />
-    <link rel="prev" title="pyprogen.cli" href="cli.html" />
+    <link rel="next" title="Using Virtual Environments" href="activate_venv.html" />
+    <link rel="prev" title="Setting Up Git Manually" href="git_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -124,14 +124,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -217,14 +217,14 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item current active">
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="../api.html">
     API Reference
   </a>
 </li>
 
 
-<li class="nav-item ">
+<li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
   </a>
@@ -265,9 +265,14 @@
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="cli.html">pyprogen.cli</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">pyprogen.create_structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user_data_binder.html">pyprogen.UserDataBinder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -309,9 +314,9 @@
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="../api.html" class="nav-link">API Reference</a></li>
+    <li class="breadcrumb-item"><a href="../usage.html" class="nav-link">Usage</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyprogen.create_structure</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Setting Up GitHub Manually</span></li>
   </ul>
 </nav>
 </div>
@@ -328,39 +333,61 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="pyprogen-create-structure">
-<h1>pyprogen.create_structure<a class="headerlink" href="#pyprogen-create-structure" title="Link to this heading">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyprogen.create_structure">
-<span class="sig-prename descclassname"><span class="pre">pyprogen.</span></span><span class="sig-name descname"><span class="pre">create_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.user_data_binder.UserDataBinder"><span class="pre">UserDataBinder</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pyprogen/create_structure.html#create_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyprogen.create_structure" title="Link to this definition">#</a></dt>
-<dd><p>Create the project structure according to the user data and the structure.json file.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.git is True, the user must have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on their machine.
-To install git, please refer to the official documentation: <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></p>
+  <section id="setting-up-github-manually">
+<h1>Setting Up GitHub Manually<a class="headerlink" href="#setting-up-github-manually" title="Link to this heading">#</a></h1>
+<p>If the GitHub repository is not set up automatically, you can configure it manually by following these steps.</p>
+<section id="creating-a-new-github-repository">
+<h2>Creating a New GitHub Repository<a class="headerlink" href="#creating-a-new-github-repository" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Go to <strong>[GitHub](https://github.com)</strong> and create a <strong>new empty repository</strong>.</p></li>
+<li><p><strong>Do not</strong> initialize it with a README, <cite>.gitignore</cite>, or license — these will be added from your local project.</p></li>
+</ol>
+</section>
+<section id="configuring-git-user-information">
+<h2>Configuring Git User Information<a class="headerlink" href="#configuring-git-user-information" title="Link to this heading">#</a></h2>
+<p>In your terminal, navigate to the <strong>root</strong> of your project and configure your Git username and email:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git config --global user.name &quot;Your Name&quot;</span>
+<span class="go">git config --global user.email &quot;your.email@example.com&quot;</span>
+</pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If user_data.github is True, the user must have a GitHub account and a repository must be created on GitHub.
-The computer must be linked to the GitHub account otherwise the proccess will freeze because the user can’t enter the GitHub credentials during the process.</p>
+<p>&gt; <strong>Tip:</strong> If you want this configuration to be <strong>project-specific</strong> (instead of global), remove the <cite>–global</cite> flag.</p>
+</section>
+<section id="adding-the-remote-github-repository">
+<h2>Adding the Remote GitHub Repository<a class="headerlink" href="#adding-the-remote-github-repository" title="Link to this heading">#</a></h2>
+<p>Add your GitHub repository as the <strong>remote origin</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git remote add origin https://github.com/{username}/{repository_name}.git</span>
+</pre></div>
 </div>
-<p>It is recommended to use the CLI to create the project structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_data</strong> (<a class="reference internal" href="user_data_binder.html#pyprogen.UserDataBinder" title="pyprogen.UserDataBinder"><em>UserDataBinder</em></a>) – The user data object.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> – If the user data does not contain the necessary information (author_name, author_email, package_name).
-    If the user data contains github=True and (author_github is None or git=False).
-    If the package name is not valid.
-    If the package name already exists.</p></li>
-<li><p><strong>FileNotFoundError</strong> – If the structure.json file is not found.</p></li>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">{username}</span></code> with your <strong>GitHub username</strong>.</p></li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">{repository_name}</span></code> with the <strong>name of your repository</strong>.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
+<p>You can verify that the remote has been added correctly with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git remote -v</span>
+</pre></div>
+</div>
+</section>
+<section id="pushing-your-code-to-github">
+<h2>Pushing Your Code to GitHub<a class="headerlink" href="#pushing-your-code-to-github" title="Link to this heading">#</a></h2>
+<p>Once the remote is set up, you can push your code to GitHub. Follow the instructions in the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section to properly commit and push your changes.</p>
+<p>For a quick initial push, use the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add -A .</span>
+<span class="go">git commit -m &quot;Initial commit&quot;</span>
+<span class="go">git push -u origin master</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re using <strong>main</strong> as the default branch instead of <strong>master</strong>, replace <cite>master</cite> with <cite>main</cite> in the commands above.</p>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To set up <strong>GitHub Pages</strong> for hosting documentation, refer to the <a class="reference internal" href="git_setup.html"><span class="doc">Setting Up Git Manually</span></a> section.</p></li>
+<li><p>For pushing documentation to GitHub, refer to the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -374,20 +401,20 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="cli.html"
+       href="git_setup.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">pyprogen.cli</p>
+        <p class="prev-next-title">Setting Up Git Manually</p>
       </div>
     </a>
     <a class="right-next"
-       href="user_data_binder.html"
+       href="activate_venv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pyprogen.UserDataBinder</p>
+        <p class="prev-next-title">Using Virtual Environments</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -410,7 +437,11 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen.create_structure"><code class="docutils literal notranslate"><span class="pre">create_structure()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-github-repository">Creating a New GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-git-user-information">Configuring Git User Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-the-remote-github-repository">Adding the Remote GitHub Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pushing-your-code-to-github">Pushing Your Code to GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 </ul>
   </nav></div>
 
@@ -418,7 +449,7 @@ The computer must be linked to the GitHub account otherwise the proccess will fr
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/api_doc/create_structure.rst.txt"
+      <li><a href="../_sources/usage_doc/github_setup.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

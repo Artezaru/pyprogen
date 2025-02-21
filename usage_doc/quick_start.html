@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quick Start &#8212; pyprogen 1.0.8 documentation</title>
+    <title>Quick Start &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=aec50437"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/quick_start';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.0.8 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.0 documentation</p>
   
 </a></div>
     
@@ -134,6 +134,13 @@
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -223,6 +230,13 @@
   </a>
 </li>
 
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -253,12 +267,12 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Activate the virtual environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_module.html">Write modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_documentation.html">Write Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build_the_documentation.html">Build the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -321,53 +335,91 @@
                   
   <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h1>
-<p>To use pyprogen, install the package using pip:</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>Before using <strong>pyprogen</strong>, ensure that the following dependencies are installed on your system:</p>
+<ul class="simple">
+<li><p>Python 3.6 or higher</p></li>
+<li><p>pip</p></li>
+<li><p>git (required for Git-related features)</p></li>
+</ul>
+<p>To automatically link a project to a GitHub repository, you must have a <strong>GitHub account</strong> and an existing repository on GitHub.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following sections provide step-by-step instructions for manually setting up documentation, Git, or a GitHub repository:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="documentation_setup.html"><span class="doc">Setting Manually the Documentation</span></a></p></li>
+<li><p><a class="reference internal" href="git_setup.html"><span class="doc">Setting Up Git Manually</span></a></p></li>
+<li><p><a class="reference internal" href="github_setup.html"><span class="doc">Setting Up GitHub Manually</span></a></p></li>
+</ul>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To install <strong>pyprogen</strong>, use the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install git+https://github.com/Artezaru/pyprogen.git</span>
 </pre></div>
 </div>
-<p>Then, you can use (in the same environment) the command line interface (CLI) to create a new Python project in the current directory.</p>
+<p>Once installed, you can create a new Python project in the current directory using the command line interface (CLI):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pyprogen</span>
 </pre></div>
 </div>
-<p>This command will open the following CLI.
-You can navigate through the different options with the arrow keys and select an option with the enter key.</p>
-<p>The first section is <code class="docutils literal notranslate"><span class="pre">Author</span> <span class="pre">Informations</span></code>.</p>
-<img alt="Author Informations Section" class="align-center" src="../_images/author_informations.png" />
-<p>In this section, you can enter the author name and email.
-These fields are mandatory.
-To change the value of a field, you can use the arrow keys to navigate to the field and press the enter key.
-Then, a prompt will appear to enter the new value.
-The <code class="docutils literal notranslate"><span class="pre">Author</span> <span class="pre">Informations</span></code> section is saved for the next time you use the CLI.
-It is not necessary to enter this information every time you create a new project but only when you want to change it.</p>
-<p>The second section is <code class="docutils literal notranslate"><span class="pre">Package</span> <span class="pre">Setup</span></code>.</p>
-<img alt="Package Setup Section" class="align-center" src="../_images/package_setup.png" />
-<p>In this section, you can enter the package name, and if you want to add a sphinx documentation, a git repository, and create a virtual environment.
-The package name is mandatory, but the other fields are optional.
-The documention, git and virtual environment fields are saved for the next time you use the CLI.
-Only the package name is mandatory to enter every time you create a new project.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If git is selected, <code class="docutils literal notranslate"><span class="pre">git</span></code> must be installed on the system.</p>
-</div>
-<p>The last section is <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>.</p>
-<img alt="Github Section" class="align-center" src="../_images/github.png" />
-<p>In this section, you can enter the github repository link to connect the project to the repository.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If github is selected, the git repository must be created on github before creating the project.
-Furthermore, the computer must have access to the repository and the credantials must be saved in the git configuration.
-If the condition is not met, set github to <code class="docutils literal notranslate"><span class="pre">No</span></code> and run the following command in the project directory to connect the project to the repository:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git remote add origin &lt;repository_link&gt;</span>
-<span class="go">git push -u origin master</span>
-</pre></div>
-</div>
-</div>
-<p>After entering all the information, the project will be created in the current directory with the <code class="docutils literal notranslate"><span class="pre">Create</span></code> button.</p>
+<p>This command launches an interactive CLI where you can configure your project. Use the <strong>arrow keys</strong> to navigate and <strong>Enter</strong> to select options.</p>
+</section>
+<section id="cli-interface-overview">
+<h2>CLI Interface Overview<a class="headerlink" href="#cli-interface-overview" title="Link to this heading">#</a></h2>
+<section id="author-information">
+<h3>Author Information<a class="headerlink" href="#author-information" title="Link to this heading">#</a></h3>
+<img alt="Author Information Section" class="align-center" src="../_images/author_informations.png" />
+<p>In this section, you must enter the <strong>author’s name</strong> and <strong>email address</strong>. These fields are mandatory.</p>
+<p>To modify a field, navigate to it using the arrow keys and press <strong>Enter</strong> to input a new value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the button is in red, it means that the project will not be created because some fields are missing.</p>
+<p>The author information is saved for future use, so you only need to enter it once unless you wish to update it.</p>
 </div>
-<p>If you want to cancel the creation, you can press the <code class="docutils literal notranslate"><span class="pre">Exit</span></code> keyboard key.</p>
+</section>
+<section id="package-setup">
+<h3>Package Setup<a class="headerlink" href="#package-setup" title="Link to this heading">#</a></h3>
+<img alt="Package Setup Section" class="align-center" src="../_images/package_setup.png" />
+<p>Here, you configure the project settings, including:</p>
+<ul class="simple">
+<li><p><strong>Package name</strong> (mandatory)</p></li>
+<li><p>Enable <strong>Sphinx documentation</strong> (optional)</p></li>
+<li><p>Initialize a <strong>Git repository</strong> (optional)</p></li>
+<li><p>Create a <strong>virtual environment</strong> (optional)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Documentation, Git, and virtual environment preferences are saved for future use. Only the <strong>package name</strong> needs to be entered each time you create a new project.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If Git is enabled, <code class="docutils literal notranslate"><span class="pre">git</span></code> must be installed on your system.</p>
+</div>
+</section>
+<section id="github-integration">
+<h3>GitHub Integration<a class="headerlink" href="#github-integration" title="Link to this heading">#</a></h3>
+<img alt="GitHub Section" class="align-center" src="../_images/github.png" />
+<p>In this section, you can enter a <strong>GitHub repository URL</strong> to link your project.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>The repository must already exist on GitHub before creating the project.</p></li>
+<li><p>Your computer must have <strong>access</strong> to the repository, and your <strong>credentials</strong> must be stored in the Git configuration.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="creating-the-project">
+<h2>Creating the Project<a class="headerlink" href="#creating-the-project" title="Link to this heading">#</a></h2>
+<p>Once all fields are filled, click the <strong>“Create”</strong> button to generate the project in the current directory.
+The project structure is detailed in the <a class="reference internal" href="project_structure.html"><span class="doc">Project Structure</span></a> section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the button appears in <strong>red</strong>, it indicates missing required fields, preventing the project from being created.</p>
+</div>
+<p>To cancel the setup at any time, press the <strong>Exit</strong> button.</p>
+</section>
 </section>
 
 
@@ -408,6 +460,26 @@ If the condition is not met, set github to <code class="docutils literal notrans
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-interface-overview">CLI Interface Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#author-information">Author Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-setup">Package Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-integration">GitHub Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-project">Creating the Project</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

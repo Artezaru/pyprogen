@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Project Structure &#8212; pyprogen 1.0.8 documentation</title>
+    <title>Project Structure &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -38,13 +38,13 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=aec50437"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/project_structure';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Activate the virtual environment" href="activate_venv.html" />
+    <link rel="next" title="Setting Manually the Documentation" href="documentation_setup.html" />
     <link rel="prev" title="Quick Start" href="quick_start.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.0.8 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.0 documentation</p>
   
 </a></div>
     
@@ -134,6 +134,13 @@
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -223,6 +230,13 @@
   </a>
 </li>
 
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -253,12 +267,12 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Activate the virtual environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_module.html">Write modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_documentation.html">Write Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build_the_documentation.html">Build the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -321,14 +335,14 @@
                   
   <section id="project-structure">
 <h1>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading">#</a></h1>
-<p>Once you have created a new project by the CLI, (see <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a> section), the project will have the following structure:</p>
+<p>Once you have created a new project using the CLI (see the <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a> section), the project will have the following structure:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
 <span class="go">├── pyprogen</span>
 <span class="go">│   ├── __init__.py</span>
 <span class="go">│   ├── __main__.py</span>
 <span class="go">│   ├── __version__.py</span>
-<span class="go">│   ├── ressources</span>
-<span class="go">│   │   ├── __init__.py</span>
+<span class="go">│   └── ressources</span>
+<span class="go">│       └── __init__.py</span>
 <span class="go">├── tests</span>
 <span class="go">├── examples</span>
 <span class="go">├── laboratory</span>
@@ -337,11 +351,11 @@
 <span class="go">│   ├── source</span>
 <span class="go">│   │   ├── api_doc</span>
 <span class="go">│   │   ├── usage_doc</span>
-<span class="go">|   |   ├── conf.py</span>
-<span class="go">|   |   ├── index.rst</span>
-<span class="go">|   |   ├── api.rst</span>
-<span class="go">|   |   ├── usage.rst</span>
-<span class="go">|   ├── build</span>
+<span class="go">│   │   ├── conf.py</span>
+<span class="go">│   │   ├── index.rst</span>
+<span class="go">│   │   ├── api.rst</span>
+<span class="go">│   │   └── usage.rst</span>
+<span class="go">│   └── build</span>
 <span class="go">├── .gitignore</span>
 <span class="go">├── README.md</span>
 <span class="go">├── requirements.txt</span>
@@ -350,21 +364,93 @@
 <span class="go">└── LICENSE</span>
 </pre></div>
 </div>
-<p>The project structure is composed of the following directories and files:</p>
+<section id="project-components">
+<h2>Project Components<a class="headerlink" href="#project-components" title="Link to this heading">#</a></h2>
+<section id="pyprogen">
+<h3>pyprogen<a class="headerlink" href="#pyprogen" title="Link to this heading">#</a></h3>
+<p>The <strong>pyprogen</strong> directory is the main package of the project.</p>
 <ul class="simple">
-<li><p><strong>pyprogen</strong>: The main package of the project. To correctly add new modules, refer to the <a class="reference internal" href="write_module.html"><span class="doc">Write modules</span></a> section.</p></li>
-<li><p><strong>tests</strong>: The directory containing the tests of the project.</p></li>
-<li><p><strong>examples</strong>: The directory containing examples of how to use the package.</p></li>
-<li><p><strong>laboratory</strong>: The directory containing the experiments and tests of the project. This folder is not versioned by git. It is a sandbox to test new features.</p></li>
-<li><p><strong>venv</strong>: The virtual environment of the project. To activate the virtual environment, refer to the <a class="reference internal" href="activate_venv.html"><span class="doc">Activate the virtual environment</span></a> section.</p></li>
-<li><p><strong>docs</strong>: The directory containing the documentation of the project. To add new documentation, refer to the <a class="reference internal" href="write_documentation.html"><span class="doc">Write Documentation</span></a> section.</p></li>
-<li><p><strong>.gitignore</strong>: The file containing the files and directories to ignore by git.</p></li>
-<li><p><strong>README.md</strong>: The file containing the description of the project.</p></li>
-<li><p><strong>requirements.txt</strong>: The file containing the dependencies of the project.</p></li>
-<li><p><strong>setup.py</strong>: The file containing the metadata of the project.</p></li>
-<li><p><strong>Makefile</strong>: The file containing the commands to build the project.</p></li>
-<li><p><strong>LICENSE</strong>: The file containing the license of the project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> — Initializes the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__main__.py</span></code> — Entry point if the package is executed directly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> — Contains the package version information.</p></li>
+<li><p><strong>ressources/</strong> — Additional package resources.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> — Initializes the resources module.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To correctly add new modules, refer to the <a class="reference internal" href="write_module_and_doc.html"><span class="doc">Write Modules and Documentation</span></a> section.</p>
+</div>
+</section>
+<section id="tests">
+<h3>tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h3>
+<p>The <strong>tests</strong> directory contains unit tests for the project, ensuring code correctness and reliability.</p>
+</section>
+<section id="examples">
+<h3>examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p>The <strong>examples</strong> directory includes practical examples demonstrating how to use the package.</p>
+</section>
+<section id="laboratory">
+<h3>laboratory<a class="headerlink" href="#laboratory" title="Link to this heading">#</a></h3>
+<p>A <strong>sandbox environment</strong> for experiments and feature testing.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This folder is <strong>not versioned</strong> by Git. It serves as a local space for testing new features and prototypes.</p>
+</div>
+</section>
+<section id="venv">
+<h3>venv<a class="headerlink" href="#venv" title="Link to this heading">#</a></h3>
+<p>The <strong>venv</strong> directory contains the project’s virtual environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To activate the virtual environment, see the <a class="reference internal" href="activate_venv.html"><span class="doc">Using Virtual Environments</span></a> section.</p>
+</div>
+</section>
+<section id="docs">
+<h3>docs<a class="headerlink" href="#docs" title="Link to this heading">#</a></h3>
+<p>The <strong>docs</strong> directory holds the project’s documentation.</p>
+<ul class="simple">
+<li><p><strong>source/</strong> — Sphinx source files.</p></li>
+<li><p><strong>api_doc/</strong> — API documentation.</p></li>
+<li><p><strong>usage_doc/</strong> — Usage guides.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> — Sphinx configuration file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> — Main documentation index.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">api.rst</span></code> — API reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usage.rst</span></code> — Usage instructions.</p></li>
+<li><p><strong>build/</strong> — Generated documentation output.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add or update the documentation, refer to the <a class="reference internal" href="write_module_and_doc.html"><span class="doc">Write Modules and Documentation</span></a> section.</p>
+</div>
+</section>
+</section>
+<section id="other-files">
+<h2>Other Files<a class="headerlink" href="#other-files" title="Link to this heading">#</a></h2>
+<section id="gitignore">
+<h3>.gitignore<a class="headerlink" href="#gitignore" title="Link to this heading">#</a></h3>
+<p>Specifies files and directories that Git should ignore.</p>
+</section>
+<section id="readme-md">
+<h3>README.md<a class="headerlink" href="#readme-md" title="Link to this heading">#</a></h3>
+<p>Provides a general overview and description of the project.</p>
+</section>
+<section id="requirements-txt">
+<h3>requirements.txt<a class="headerlink" href="#requirements-txt" title="Link to this heading">#</a></h3>
+<p>Lists all the dependencies required by the project.</p>
+</section>
+<section id="setup-py">
+<h3>setup.py<a class="headerlink" href="#setup-py" title="Link to this heading">#</a></h3>
+<p>Defines the project’s metadata and setup configuration.</p>
+</section>
+<section id="makefile">
+<h3>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">#</a></h3>
+<p>Contains commands to build and manage the project.</p>
+</section>
+<section id="license">
+<h3>LICENSE<a class="headerlink" href="#license" title="Link to this heading">#</a></h3>
+<p>Specifies the terms under which the project is licensed.</p>
+</section>
+</section>
 </section>
 
 
@@ -387,11 +473,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="activate_venv.html"
+       href="documentation_setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Activate the virtual environment</p>
+        <p class="prev-next-title">Setting Manually the Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -405,6 +491,35 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-components">Project Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen">pyprogen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory">laboratory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docs">docs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-files">Other Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore">.gitignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-md">README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">requirements.txt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-py">setup.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license">LICENSE</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Activate the virtual environment &#8212; pyprogen 1.0.8 documentation</title>
+    <title>Using Virtual Environments &#8212; pyprogen 1.1.0 documentation</title>
   
   
   
@@ -38,14 +38,14 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=aec50437"></script>
+    <script src="../_static/documentation_options.js?v=fc837d61"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/activate_venv';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Install Packages" href="install_packages.html" />
-    <link rel="prev" title="Project Structure" href="project_structure.html" />
+    <link rel="next" title="Write Modules and Documentation" href="write_module_and_doc.html" />
+    <link rel="prev" title="Setting Up GitHub Manually" href="github_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.0.8 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.0 documentation</p>
   
 </a></div>
     
@@ -134,6 +134,13 @@
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -223,6 +230,13 @@
   </a>
 </li>
 
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../ressources.html">
+    Ressources files
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -253,12 +267,12 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Activate the virtual environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install_packages.html">Install Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_module.html">Write modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="write_documentation.html">Write Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build_the_documentation.html">Build the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
 </div>
 </nav></div>
@@ -302,7 +316,7 @@
     
     <li class="breadcrumb-item"><a href="../usage.html" class="nav-link">Usage</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Activate the virtual environment</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Using Virtual Environments</span></li>
   </ul>
 </nav>
 </div>
@@ -319,22 +333,80 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="activate-the-virtual-environment">
-<h1>Activate the virtual environment<a class="headerlink" href="#activate-the-virtual-environment" title="Link to this heading">#</a></h1>
-<p>To activate the virtual environment, go to the root of the project and run the following command:</p>
-<p>For Windows:</p>
+  <section id="using-virtual-environments">
+<h1>Using Virtual Environments<a class="headerlink" href="#using-virtual-environments" title="Link to this heading">#</a></h1>
+<p>Virtual environments (<strong>venv</strong>) help isolate project dependencies, ensuring that each project uses the correct versions of packages without conflicts.</p>
+<section id="creating-a-virtual-environment">
+<h2>Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading">#</a></h2>
+<p>To create a new virtual environment in your project, navigate to the <strong>root</strong> of the project and run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python -m venv venv</span>
+</pre></div>
+</div>
+<p>This will create a new directory named <strong>`venv`</strong> containing the isolated Python environment.</p>
+<ul class="simple">
+<li><p><strong>`venv/`</strong> — The directory that holds the virtual environment.</p></li>
+<li><p><strong>`Scripts/`</strong> (Windows) or <strong>`bin/`</strong> (Unix) — Contains activation scripts and executables.</p></li>
+</ul>
+</section>
+<section id="activating-the-virtual-environment">
+<h2>Activating the Virtual Environment<a class="headerlink" href="#activating-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>To start using the virtual environment, you need to <strong>activate</strong> it.</p>
+<p><strong>On Windows:</strong></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">venv\Scripts\activate.bat</span>
 </pre></div>
 </div>
-<p>For Unix:</p>
+<p>Or, if you’re using <strong>PowerShell</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">venv\Scripts\Activate.ps1</span>
+</pre></div>
+</div>
+<p><strong>On Unix/MacOS:</strong></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source venv/bin/activate</span>
 </pre></div>
 </div>
-<p>To deactivate the virtual environment, run the following command:</p>
+<p>Once activated, your terminal prompt will typically change to show the active environment, like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">user@machine:~/project$</span>
+</pre></div>
+</div>
+</section>
+<section id="deactivating-the-virtual-environment">
+<h2>Deactivating the Virtual Environment<a class="headerlink" href="#deactivating-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>To stop using the virtual environment, simply run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">deactivate</span>
 </pre></div>
 </div>
-<p>To learn how to install new packages and the package locally, refer to the <a class="reference internal" href="install_packages.html"><span class="doc">Install Packages</span></a> section.</p>
+<p>This will return you to your system’s default Python environment.</p>
+</section>
+<section id="verifying-the-virtual-environment">
+<h2>Verifying the Virtual Environment<a class="headerlink" href="#verifying-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>You can verify that the virtual environment is active and using the correct Python interpreter by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">which python  # Unix/MacOS</span>
+<span class="go">where python  # Windows</span>
+</pre></div>
+</div>
+<p>You should see a path pointing to the <strong>`venv`</strong> directory.</p>
+</section>
+<section id="installing-packages-in-the-virtual-environment">
+<h2>Installing Packages in the Virtual Environment<a class="headerlink" href="#installing-packages-in-the-virtual-environment" title="Link to this heading">#</a></h2>
+<p>With the virtual environment activated, you can install packages using <strong>pip</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install package_name</span>
+</pre></div>
+</div>
+<p>To install all dependencies listed in a <strong>`requirements.txt`</strong> file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</section>
+<section id="generating-requirements-txt">
+<h2>Generating requirements.txt<a class="headerlink" href="#generating-requirements-txt" title="Link to this heading">#</a></h2>
+<p>After installing packages, you can freeze the current environment’s dependencies into a <strong>`requirements.txt`</strong> file using:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip freeze &gt; requirements.txt</span>
+</pre></div>
+</div>
+<p>This allows others (or yourself) to recreate the exact environment using:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -r requirements.txt</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -348,20 +420,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="project_structure.html"
+       href="github_setup.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Project Structure</p>
+        <p class="prev-next-title">Setting Up GitHub Manually</p>
       </div>
     </a>
     <a class="right-next"
-       href="install_packages.html"
+       href="write_module_and_doc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Install Packages</p>
+        <p class="prev-next-title">Write Modules and Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -375,6 +447,23 @@
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-virtual-environment">Creating a Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-the-virtual-environment">Activating the Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivating-the-virtual-environment">Deactivating the Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-virtual-environment">Verifying the Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages-in-the-virtual-environment">Installing Packages in the Virtual Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-requirements-txt">Generating requirements.txt</a></li>
+</ul>
+  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">
