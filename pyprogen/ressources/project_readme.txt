@@ -45,7 +45,7 @@ open docs/build/html/index.html
 ```
 
 
-echo You can also use LateX to generate a PDF \(LateX must be install\)
+You can also use LateX to generate a PDF \(LateX must be install\)
 1. Install the sphinx package and the pydata-sphinx-theme
 
 ```
