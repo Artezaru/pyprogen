@@ -18,3 +18,8 @@ html:
 latexpdf:
 	$(SPHINXBUILD) -b latex $(SOURCEDIR) $(BUILDDIR)/latex
 	cd $(BUILDDIR)/latex && pdflatex pyprogen.tex && pdflatex pyprogen.tex
+
+# 4. Clean the documentation
+clean:
+	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O);
+	cd @$(SPHINXBUILD); git worktree add -f html gh-pages
