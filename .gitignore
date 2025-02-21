@@ -14,7 +14,7 @@ venv/
 laboratory/
 
 # Sphinx documentation
-# build/
+build/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
