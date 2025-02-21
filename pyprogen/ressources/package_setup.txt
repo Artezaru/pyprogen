@@ -29,7 +29,7 @@ setup(
     description="",  # Short description of the package
     long_description=read_long_description(), # Update the long description as necessary
     long_description_content_type="text/markdown",  # Format of the long description
-    url="{author_github}",  # URL to the package's homepage
+    url="{github_repo}",  # URL to the package's homepage
     packages=find_packages(),  # Automatically find packages in the directory
     classifiers=[
         "Programming Language :: Python :: 3",

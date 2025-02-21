@@ -8,13 +8,43 @@ Generating Python project from Command Line Interface.
 pyprogen
 ```
 
-![pyprogen CLI]{pyprogen/ressources/pyprogen_CLI.png}
+The package will have th following structure with a connection with Github and Gitpage.
+
+```
+pyprogen
+    ├── pyprogen
+    │   ├── __init__.py
+    │   ├── __main__.py
+    │   ├── __version__.py
+    │   ├── ressources
+    │   │   ├── __init__.py
+    ├── tests
+    ├── examples
+    ├── laboratory
+    ├── venv
+    ├── docs
+    │   ├── source
+    │   │   ├── api_doc
+    │   │   ├── usage_doc
+    |   |   ├── conf.py
+    |   |   ├── index.rst
+    |   |   ├── api.rst
+    |   |   ├── usage.rst
+    |   ├── build
+    ├── .gitignore
+    ├── README.md
+    ├── requirements.txt
+    ├── setup.py
+    ├── Makefile
+    └── LICENSE
+```
 
 ## Author
 
 - Name: Artezaru
 - Email: artezaru.github@proton.me
 - GitHub: https://github.com/Artezaru/pyprogen.git
+- Documentation: https://Artezaru.github.io/pyprogen/
 
 ## Installation
 
@@ -28,49 +58,6 @@ Clone with git
 
 ```
 git clone https://github.com/Artezaru/pyprogen.git
-```
-
-## Documentation
-
-Generate the documentation with sphinx
-1. Install the sphinx package and the pydata-sphinx-theme
-
-```
-pip install sphinx
-pip install pydata-sphinx-theme
-```
-
-2. Generate the documentation
-
-```
-make html
-```
-
-3. Open the documentation in a web browser
-
-```
-open docs/build/html/index.html
-```
-
-
-You can also use LateX to generate a PDF \(LateX must be install\)
-1. Install the sphinx package and the pydata-sphinx-theme
-
-```
-pip install sphinx
-pip install pydata-sphinx-theme
-```
-
-2. Generate the documentation
-
-```
-make html
-```
-
-3. Open the documentation in a web browser
-
-```
-open docs/build/latex/pyprogen.pdf
 ```
 
 ## License

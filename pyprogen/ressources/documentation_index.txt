@@ -28,7 +28,8 @@ The package ``{package_name}`` was created by the following author:
 
 - **Name**: {author_name}
 - **Email**: {author_email}
-- **GitHub**: [{author_name}]({author_github})
+- **GitHub**: [{author_name}]({github_repo})
+- **Documentation** [{author_name}]({gitpage_doc})
 
 
 License

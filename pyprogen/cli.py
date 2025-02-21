@@ -5,33 +5,6 @@ from .create_structure import create_structure
 import os
 
 
-def condition(user_data) -> Tuple[bool, str]:
-    r"""
-    Check if the user data contains the necessary information and if the package name is valid and available.
-
-    Parameters
-    ----------
-    user_data : UserDataBinder
-        The user data object.
-
-    Returns
-    -------
-    bool
-        True if the user data is valid, False otherwise.
-    str
-        The error message if the user data is invalid.
-    """
-    if user_data.author_name is None or user_data.author_email is None or user_data.package_name is None:
-        return False, "author_name, author_email, and package_name must be provided"
-    if user_data.github and (user_data.author_github is None or not user_data.git):
-        return False, "author_github must be provided and git must be True if github is True"
-    if not user_data.package_name.isidentifier():
-        return False, "Invalid package name"
-    if os.path.exists(user_data.package_name):
-        return False, "Package name already exists"
-    return True, ""
-
-
 def cli(stdscr):
     r"""
     Run the CLI interface.
@@ -47,7 +20,10 @@ def cli(stdscr):
 
     # Set default values
     user_data.package_name = None
-    user_data.author_github = None
+    user_data.github_username = None
+    user_data.github_email = None
+    user_data.github_repo = None
+    user_data.gitpage_doc = None
     user_data.github = False
 
     # Initialize curses settings
@@ -62,7 +38,7 @@ def cli(stdscr):
     # Define the CLI interface
     CLI_INTERFACE = {
         "Author Informations": [
-            {"label": "Author Name", "key": "author_name", "type": "text", "required": True},
+            {"label": "Author Name(s)", "key": "author_name", "type": "text", "required": True},
             {"label": "Author Email", "key": "author_email", "type": "text", "required": True}
         ],
         "Package Setup": [
@@ -74,7 +50,10 @@ def cli(stdscr):
         "GitHub": [
             {"label": "GitHub Enabled", "key": "github", "type": "bool", "required": False},
             {"label": "Auto-Generate", "key": None, "type": "command", "required": False, "condition": "github"},
-            {"label": "Author GitHub", "key": "author_github", "type": "text", "required": False, "condition": "github"}
+            {"label": "GitHub Username", "key": "github_username", "type": "text", "required": False, "condition": "github"},
+            {"label": "GitHub Email", "key": "github_email", "type": "text", "required": False, "condition": "github"},
+            {"label": "GitHub Repository", "key": "github_repo", "type": "text", "required": False, "condition": "github"},
+            {"label": "GitHub Pages Documentation", "key": "gitpage_doc", "type": "text", "required": False, "condition": "github"},
         ],
         "Create": [],
         "Cancel": []
@@ -100,7 +79,7 @@ def cli(stdscr):
         stdscr.addstr(0, 0, "Menu:", column_0_border)
         for idx, option in enumerate(CLI_INTERFACE.keys()):
             if option == "Create":
-                valid, _ = condition(user_data)
+                valid = user_data.ready_to_create()[0]
                 color = curses.color_pair(1) if not valid else curses.color_pair(2)
                 highlight = curses.A_REVERSE if focus_column == 0 and option == current_option else curses.A_NORMAL
                 stdscr.addstr(idx + 1, 0, f"  {option}", color | highlight)
@@ -140,13 +119,13 @@ def cli(stdscr):
 
         # Handle 'Create' option with missing fields
         if current_option == "Create":
-            valid, error_message = condition(user_data)
+            valid, message = user_data.ready_to_create()
             if not valid:
-                curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-                stdscr.addstr(1, column_0_width + 2, f"Press Enter to Create ({error_message})", curses.color_pair(1))
+                color = curses.color_pair(1)
+                stdscr.addstr(1, column_0_width + 2, message, color)
             else:
-                curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
-                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create", curses.color_pair(2))
+                color = curses.color_pair(2)
+                stdscr.addstr(1, column_0_width + 2, "Ready to create the package!", color)
 
         stdscr.refresh()
 
@@ -183,7 +162,7 @@ def cli(stdscr):
                 break
 
             if current_option == "Create":
-                valid, error_message = condition(user_data)
+                valid, error_message = user_data.ready_to_create()
                 if not valid:
                     stdscr.addstr(height - 2, 0, error_message)
                     stdscr.getch()
@@ -198,7 +177,7 @@ def cli(stdscr):
                 if field["type"] == "bool":
                     current_value = getattr(user_data, field["key"], False)
                     setattr(user_data, field["key"], not current_value)
-                    
+
                 elif field["type"] == "text":
                     current_value = getattr(user_data, field["key"], "")
                     stdscr.addstr(height - 2, 0, f"Edit {field['label']}: ")
@@ -210,9 +189,15 @@ def cli(stdscr):
                 elif field["type"] == "command":
                     if current_option == "GitHub" and field["label"] == "Auto-Generate":
                         if user_data.author_name and user_data.package_name:
-                            generated_url = f"https://github.com/{user_data.author_name}/{user_data.package_name}.git"
-                            setattr(user_data, "author_github", generated_url)
-
+                            generate_author = user_data.author_name.replace(" ", "-").lower()
+                            generate_email = user_data.author_email
+                            generated_url = f"https://github.com/{generate_author}/{user_data.package_name}.git"
+                            generated_doc = f"https://{generate_author}.github.io/{user_data.package_name}"
+                            setattr(user_data, "github_username", generate_author)
+                            setattr(user_data, "github_email", generate_email)
+                            setattr(user_data, "github_repo", generated_url)
+                            setattr(user_data, "gitpage_doc", generated_doc)
+                        
 
 if __name__ == '__main__':
     curses.wrapper(cli)

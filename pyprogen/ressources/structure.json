@@ -1,8 +1,6 @@
 {
     "HELP" : "This is the structure of the project. The key 'directories' contains the directories to create and the key 'files' contains the files to create. For each file or directory, the key 'path' is a list of strings that represent the path of the file or directory. The key 'if_doc' is a boolean that indicates if the file or directory is related to the documentation. The key 'if_git' is a boolean that indicates if the file or directory is related to git. The key 'if_venv' is a boolean that indicates if the file or directory is related to the virtual environment.",
 
-
-
     "directories" : {
         "package_dir" : {
             "path" : "{package_name}",
@@ -48,6 +46,13 @@
 
         "documentation_build_dir" : {
             "path" : "docs/build",
+            "if_doc" : true,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
+        "documentation_html_dir" : {
+            "path" : "docs/build/html",
             "if_doc" : true,
             "if_git" : false,
             "if_venv" : false

@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.autodoc", # Automatically document the code
     "sphinx.ext.viewcode", # Add links to the code
     "sphinx.ext.napoleon", # Support for Google and Numpy docstring formats
+    "sphinx.ext.githubpages", # Publish the documentation on GitHub
 ]
 
 napoleon_google_docstring = False

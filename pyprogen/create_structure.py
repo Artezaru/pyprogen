@@ -8,6 +8,7 @@ import time
 
 from .user_data_binder import UserDataBinder
 
+
 def create_structure(user_data: UserDataBinder) -> None:
     r"""
     Create the project structure according to the user data and the structure.json file.
@@ -41,21 +42,15 @@ def create_structure(user_data: UserDataBinder) -> None:
     """
 
     # 0. Check if the user data contains the information needed and if the package name is valid (no spaces or special characters) and available.
-    print("[pyprogen] Checking user data ... ")
-    if user_data.author_name is None or user_data.author_email is None or user_data.package_name is None:
-        raise ValueError("author_name and author_email must be provided")
-    
-    if user_data.github and (user_data.author_github is None or not user_data.git):
-        raise ValueError("author_github must be provided and git must be True if github is True")
+    if not user_data.ready_to_create()[0]:
+        raise ValueError("The user data must contain the necessary information (author_name, author_email, package_name)")
 
-    if not user_data.package_name.isidentifier():
-        raise ValueError("Invalid package name")
-
-    if os.path.exists(user_data.package_name):
-        raise ValueError("Package name already exists")
-
-    if user_data.author_github is None:
-        user_data.author_github = "" # Ensure the format string works correctly
+    if not user_data.github:
+        # Default values for formatting
+        user_data.github_username = user_data.author_name
+        user_data.github_email = user_data.author_email
+        user_data.github_repo = f"https://github.com/{user_data.github_username}/{user_data.package_name}.git"
+        user_data.gitpage_doc = f"https://{user_data.github_username}.github.io/{user_data.package_name}"
 
     # 1. Get the structure
     print("[pyprogen] Loading structure ... ")
@@ -70,7 +65,10 @@ def create_structure(user_data: UserDataBinder) -> None:
     formatting["package_name"] = user_data.package_name
     formatting["author_name"] = user_data.author_name
     formatting["author_email"] = user_data.author_email
-    formatting["author_github"] = user_data.author_github
+    formatting["github_username"] = user_data.github_username
+    formatting["github_email"] = user_data.github_email
+    formatting["github_repo"] = user_data.github_repo
+    formatting["gitpage_doc"] = user_data.gitpage_doc
 
     # 3. Load the key/path for directories and files to format the strings in the templates
     for key, directory in structure["directories"].items():
@@ -86,6 +84,8 @@ def create_structure(user_data: UserDataBinder) -> None:
     # 4. Create the directories 
     os.makedirs(user_data.package_name, exist_ok=True)
     os.chdir(user_data.package_name)
+    parent_dir = os.getcwd()
+    formatting["parent_dir"] = parent_dir
     print("[pyprogen] Creating directories ... ")
     for key, directory in structure["directories"].items():
         # Check if the directory should be created
@@ -121,16 +121,7 @@ def create_structure(user_data: UserDataBinder) -> None:
         with open(formatting[key], "w") as file:
             file.write(content)
 
-    # 6. Setting up git
-    if user_data.git:
-        print("[pyprogen] Setting up git ... ")
-        os.system(f"git config user.name {user_data.author_name}")
-        os.system(f"git config user.email {user_data.author_email}")
-        os.system("git init")
-        os.system("git add .")
-        os.system('git commit -m "Initial commit"')
-
-    # 7. Create the virtual environment
+    # 6. Create the virtual environment
     pip_path = "pip" # Default pip
     if user_data.venv:
         print("[pyprogen] Creating virtual environment ... ")
@@ -142,17 +133,47 @@ def create_structure(user_data: UserDataBinder) -> None:
         # Activate the virtual environment and install the required packages
         pip_path = os.path.join(venv_path, "bin", "pip")
 
-    # 8. Installing the package for the documentation
+    # 7. Installing the package for the documentation
     if user_data.doc:
         print("[pyprogen] Installing documentation tools ... ")
         subprocess.run([pip_path, "install", "sphinx"])
         subprocess.run([pip_path, "install", "pydata_sphinx_theme"])
+    
+    # 8. Setting up git
+    if user_data.git:
+        print("[pyprogen] Setting up git ... ")
+        os.system("git init")
+        os.system("git add -A .")
+        os.system('git commit -m "Initial commit"')
+        if user_data.doc:
+            os.chdir(formatting["documentation_build_dir"])
+            os.system("cd {documentation_html_dir}".format(**formatting))
+            os.system("git checkout --orphan gh-pages")
+            os.system("git reset --hard")
+            os.system("git commit --allow-empty -m 'Initializing gh-pages branch'")
+            os.chdir(formatting["parent_dir"])
+            os.system("git checkout master")
+            os.chdir(formatting["documentation_build_dir"])
+            if os.path.exists("html"):
+                os.system("rm -rf html")
+            os.system("git worktree add -f html gh-pages")
+            os.chdir(formatting["parent_dir"])
 
     # 9. Setting the connection to GitHub
     if user_data.github:
         print("[pyprogen] Setting up GitHub ... ")
-        os.system(f"git remote add origin {user_data.author_github}")
+        os.system("git config user.name {github_username}".format(**formatting))
+        os.system("git config user.email {github_email}".format(**formatting))
+        os.system("git remote add origin {github_repo}".format(**formatting))
         os.system("git push origin master")
+        if user_data.doc:
+            os.system("make clean")
+            os.system("make html")
+            os.chdir(formatting["documentation_html_dir"])
+            os.system("git add A- .")
+            os.system("git commit -m 'Update documentation'")
+            os.system("git push origin gh-pages")
+            os.chdir(formatting["parent_dir"])
     
     print("[pyprogen] Done!")
 

@@ -1,5 +1,6 @@
 import json
-from typing import Optional
+import os 
+from typing import Optional, Tuple
 import importlib.resources as pkg_resources
 
 class UserDataBinder:
@@ -7,6 +8,24 @@ class UserDataBinder:
     Class to store user data.
 
     The user data is stored in the user_data.json file in the pyprogen.ressources package.
+
+    The user_data.json file contains the following structure:
+
+        .. code-block:: json
+
+            {
+                "author_name": null,
+                "author_email": null,
+                "github_username": null,
+                "github_email": null,
+                "github_repo": null,
+                "gitpage_doc": null,
+                "package_name": null,
+                "doc": true,
+                "git": true,
+                "github": false,
+                "venv": true
+            }
 
     Properties
     ----------
@@ -16,8 +35,17 @@ class UserDataBinder:
     author_email : Optional[str]
         The email of the author of the project.
 
-    author_github : Optional[str]
+    github_username : Optional[str]
+        The GitHub username of the author of the project.
+    
+    github_email : Optional[str]
+        The GitHub email of the author of the project.
+
+    github_repo : Optional[str]
         The GitHub project page of the author of the project.
+
+    gitpage_doc : Optional[str]
+        The GitHub page of the project.
 
     package_name : Optional[str]
         The name of the package to create
@@ -84,29 +112,98 @@ class UserDataBinder:
         if value is not None and not isinstance(value, str):
             raise TypeError("author_email must be a string")
         self.user_data['author_email'] = value
-    
+
     @property
-    def author_github(self) -> Optional[str]:
+    def github_username(self) -> Optional[str]:
         """
-        Getter and setter for the author_github property.
+        Getter and setter for the github_username property.
 
         Parameters
         ----------
         value : Optional[str]
-            The value to set the author_github property to.
+            The value to set the github_username property to.
         
         Raises
         ------
         TypeError
             If the value is not a string and is not None.
         """
-        return self.user_data['author_github']
+        return self.user_data['github_username']
     
-    @author_github.setter
-    def author_github(self, value: Optional[str]) -> None:
+    @github_username.setter
+    def github_username(self, value: Optional[str]) -> None:
         if value is not None and not isinstance(value, str):
-            raise TypeError("author_github must be a string")
-        self.user_data['author_github'] = value
+            raise TypeError("github_username must be a string")
+        self.user_data['github_username'] = value
+    
+    @property
+    def github_email(self) -> Optional[str]:
+        """
+        Getter and setter for the github_email property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the github_email property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
+        return self.user_data['github_email']
+    
+    @github_email.setter
+    def github_email(self, value: Optional[str]) -> None:
+        if value is not None and not isinstance(value, str):
+            raise TypeError("github_email must be a string")
+        self.user_data['github_email'] = value
+    
+    @property
+    def github_repo(self) -> Optional[str]:
+        """
+        Getter and setter for the github_repo property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the github_repo property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
+        return self.user_data['github_repo']
+    
+    @github_repo.setter
+    def github_repo(self, value: Optional[str]) -> None:
+        if value is not None and not isinstance(value, str):
+            raise TypeError("github_repo must be a string")
+        self.user_data['github_repo'] = value
+
+    @property
+    def gitpage_doc(self) -> Optional[str]:
+        """
+        Getter and setter for the gitpage_doc property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the gitpage_doc property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
+        return self.user_data['gitpage_doc']
+    
+    @gitpage_doc.setter
+    def gitpage_doc(self, value: Optional[str]) -> None:
+        if value is not None and not isinstance(value, str):
+            raise TypeError("gitpage_doc must be a string")
+        self.user_data['gitpage_doc'] = value
 
     @property
     def package_name(self) -> Optional[str]:
@@ -227,21 +324,6 @@ class UserDataBinder:
         """
         Load user data from the user_data.json file in the pyprogen.ressources package.
 
-        The user_data.json file contains the following structure:
-
-        .. code-block:: json
-
-            {
-                "author_name": null,
-                "author_email": null,
-                "author_github": null,
-                "package_name": null,
-                "doc": true,
-                "git": true,
-                "github": false,
-                "venv": true
-            }
-
         Raises
         ------
         FileNotFoundError
@@ -258,6 +340,35 @@ class UserDataBinder:
         filepath = pkg_resources.files('pyprogen.ressources') / 'user_data.json'
         with open(filepath, 'w') as file:
             json.dump(self.user_data, file, indent=4)
+
+    def ready_to_create(self) -> Tuple[bool, str]:
+        """
+        Check if the user data is ready to create the package.
+
+        The package can be created if the following conditions are met:
+
+        - The author name, author email, and package name are provided.
+        - The package name is a valid identifier.
+        - The package name does not already exist.
+        - If github is True, the github_repo, gitpage_doc, github_author, and github_email are provided and git is True.
+
+        Returns
+        -------
+        bool
+            True if the user data is ready to create the package, False otherwise.
+        str
+            The error message if the user data is not ready to create the package.
+        """
+        if self.author_name is None or self.author_email is None or self.package_name is None:
+            return False, "The author name, author email, and package name must be provided."
+        if self.github and (self.github_username is None or self.github_email is None or self.github_repo is None or self.gitpage_doc is None or not self.git):
+            return False, "The GitHub username, GitHub email, GitHub repository, and GitHub pages documentation must be provided."
+        if not self.package_name.isidentifier():
+            return False, "The package name must be a valid identifier."
+        if os.path.exists(self.package_name):
+            return False, "The package name already exists."
+        return True, ""
+
 
     
 
