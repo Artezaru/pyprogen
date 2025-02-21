@@ -16,11 +16,6 @@ def create_structure(user_data: UserDataBinder) -> None:
 
         If user_data.git is True, the user must have ``git`` installed on their machine.
         To install git, please refer to the official documentation: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-    
-    .. warning::
-
-        If user_data.venv is True, the user must have ``venv`` installed on their machine.
-        To install venv, please refer to the official documentation: https://docs.python.org/3/library/venv.html
 
     .. warning::
 
@@ -141,7 +136,8 @@ def create_structure(user_data: UserDataBinder) -> None:
         print("[pyprogen] Creating virtual environment ... ")
         venv_path = formatting["venv_dir"]
         # Create the virtual environment
-        subprocess.run([sys.executable, "-m", "venv", venv_path])
+        subprocess.run(["pip_path", "install", "virtualenv"])
+        subprocess.run(["virtualenv", venv_path])
 
         # Activate the virtual environment and install the required packages
         pip_path = os.path.join(venv_path, "bin", "pip")

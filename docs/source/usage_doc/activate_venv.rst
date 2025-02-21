@@ -3,6 +3,14 @@ Activate the virtual environment
 
 To activate the virtual environment, go to the root of the project and run the following command:
 
+For Windows:
+
+.. code-block:: console
+
+    venv\Scripts\activate.bat
+
+For Unix:
+
 .. code-block:: console
 
     source venv/bin/activate

@@ -8,6 +8,9 @@ By using sphinx and reStructuredText, you can write the documentation of your pr
 The project is set to be able reading Latex math equations and to use the autodoc extension. This extension allows you to automatically generate the documentation of your modules and classes.
 See the Sphinx documentation for more information (https://www.sphinx-doc.org/en/master/contents.html).
 
+The file ``conf.py`` in the ``docs/source`` is set to be use with Numpydoc style. This style is a Sphinx extension that allows you to write the documentation of your functions and classes in a structured way.
+See the Numpydoc documentation for more information (https://numpydoc.readthedocs.io/en/latest/format.html).
+
 An example of a documented function is shown below:
 
 .. code-block:: python
@@ -25,24 +28,25 @@ An example of a documented function is shown below:
             a + b = c \text{ where } a, b, c \in \mathbb{Z}
 
         Parameters
-        ==========
+        ----------
         a : int
             The first number to add.
+        
         b : int
             The second number to add.
 
         Returns
-        =======
+        -------
         int
             The sum of the two numbers.
 
         Example
-        =======
+        -------
         >>> add(1, 2)
         3
 
         Raises
-        ======
+        ------
         ValueError
             If the parameters are not integers.
         """
@@ -71,4 +75,6 @@ Then go to the ``docs/source/api.rst`` file and add the following code:
         ./api_doc/add
 
 This line will add the new function to the API reference.
+
+To build the documentation, follow the steps in the :doc:`build_the_documentation` section.
 

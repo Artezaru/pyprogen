@@ -23,4 +23,10 @@ Then go to the ``__init__.py`` file in the ``<package>`` directory and add the f
 
 This line will import the new module in the package and make it available to the user.
 
+If the ``<function>.py`` need to import other classes or functions from the package, must use local imports. For example, to import the ``<class>`` class from the ``<class>.py`` file, use the following code:
+
+.. code-block:: python
+
+    from .<class> import <class>
+
 To learn how to write the documentation files, refer to the :doc:`write_documentation` section.
