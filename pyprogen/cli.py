@@ -1,17 +1,50 @@
 import curses
+from typing import Tuple
 from .user_data_binder import UserDataBinder
 from .create_structure import create_structure
 import os
 
+
+def condition(user_data) -> Tuple[bool, str]:
+    r"""
+    Check if the user data contains the necessary information and if the package name is valid and available.
+
+    Parameters
+    ----------
+    user_data : UserDataBinder
+        The user data object.
+
+    Returns
+    -------
+    bool
+        True if the user data is valid, False otherwise.
+    str
+        The error message if the user data is invalid.
+    """
+    if user_data.author_name is None or user_data.author_email is None or user_data.package_name is None:
+        return False, "author_name, author_email, and package_name must be provided"
+    if user_data.github and (user_data.author_github is None or not user_data.git):
+        return False, "author_github must be provided and git must be True if github is True"
+    if not user_data.package_name.isidentifier():
+        return False, "Invalid package name"
+    if os.path.exists(user_data.package_name):
+        return False, "Package name already exists"
+    return True, ""
+
+
 def cli(stdscr):
     r"""
     Run the CLI interface.
-    Allows users to navigate through menu options, edit user data, toggle boolean fields,
-    and execute create actions.
+    Allows users to navigate through menu options, edit user data, toggle boolean fields, and execute create actions.
+
+    Parameters
+    ----------
+    stdscr : curses.window
+        The curses window object.
     """
     # Initialize the user data
     user_data = UserDataBinder()
-    
+
     # Set default values
     user_data.package_name = None
     user_data.author_github = None
@@ -21,26 +54,33 @@ def cli(stdscr):
     curses.curs_set(0)  # Hide the cursor
     stdscr.clear()
 
+    # Define the color pairs
+    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
+    curses.init_pair(3, curses.COLOR_YELLOW, curses.COLOR_BLACK)
+
+    # Define the CLI interface
     CLI_INTERFACE = {
-        "Author Information": [
+        "Author Informations": [
             {"label": "Author Name", "key": "author_name", "type": "text", "required": True},
             {"label": "Author Email", "key": "author_email", "type": "text", "required": True}
         ],
-        "Package Information": [
+        "Package Setup": [
             {"label": "Package Name", "key": "package_name", "type": "text", "required": True},
             {"label": "Documentation", "key": "doc", "type": "bool", "required": False},
             {"label": "Git", "key": "git", "type": "bool", "required": False},
             {"label": "Virtual Environment", "key": "venv", "type": "bool", "required": False}
         ],
-        "GitHub Information": [
+        "GitHub": [
             {"label": "GitHub Enabled", "key": "github", "type": "bool", "required": False},
             {"label": "Auto-Generate", "key": None, "type": "command", "required": False, "condition": "github"},
             {"label": "Author GitHub", "key": "author_github", "type": "text", "required": False, "condition": "github"}
         ],
-        "Create": []
+        "Create": [],
+        "Cancel": []
     }
 
-    current_option = "Author Information"
+    current_option = "Author Informations"
     detail_index = 0
     focus_column = 0
 
@@ -59,8 +99,14 @@ def cli(stdscr):
         # Draw menu options
         stdscr.addstr(0, 0, "Menu:", column_0_border)
         for idx, option in enumerate(CLI_INTERFACE.keys()):
-            highlight = curses.A_REVERSE if focus_column == 0 and option == current_option else curses.A_NORMAL
-            stdscr.addstr(idx + 1, 0, f"  {option}", highlight)
+            if option == "Create":
+                valid, _ = condition(user_data)
+                color = curses.color_pair(1) if not valid else curses.color_pair(2)
+                highlight = curses.A_REVERSE if focus_column == 0 and option == current_option else curses.A_NORMAL
+                stdscr.addstr(idx + 1, 0, f"  {option}", color | highlight)
+            else:
+                highlight = curses.A_REVERSE if focus_column == 0 and option == current_option else curses.A_NORMAL
+                stdscr.addstr(idx + 1, 0, f"  {option}", highlight)
 
         stdscr.addstr(0, column_0_width + 2, "Details:", column_1_border)
 
@@ -69,47 +115,38 @@ def cli(stdscr):
 
         # Display details based on selection
         for idx, field in enumerate(selected_section):
-            # Check for conditions (e.g., only show GitHub link if GitHub is enabled)
             if "condition" in field and not getattr(user_data, field["condition"], False):
                 continue
-            
-            # Skip non-editable fields
+
             if field["key"] is None:
                 highlight = curses.A_REVERSE if focus_column == 1 and idx == detail_index else curses.A_NORMAL
                 stdscr.addstr(idx + 1, column_0_width + 2, f"{field['label']}", highlight)
-                continue 
+                continue
 
-            value = getattr(user_data, field["key"])
-            if value is None:
-                display_value = ""
-            elif isinstance(value, bool):
-                display_value = "Yes" if value else "No"
-            else:
-                display_value = value
+            value = getattr(user_data, field["key"], None)
+            display_value = "" if value is None else ("Yes" if isinstance(value, bool) and value else "No" if isinstance(value, bool) else value)
 
             highlight = curses.A_REVERSE if focus_column == 1 and idx == detail_index else curses.A_NORMAL
             stdscr.addstr(idx + 1, column_0_width + 2, f"{field['label']}: {display_value}", highlight)
 
-        # Highlight 'Create' in red if required fields are missing
+        # Additionnal informations
+        if current_option == "Package Setup":
+            color = curses.color_pair(3)
+            stdscr.addstr(len(selected_section) + 2, column_0_width + 2, "If git = Yes, git must be installed on the machine.", color)
+        if current_option == "GitHub":
+            color = curses.color_pair(3)
+            stdscr.addstr(len(selected_section) + 2, column_0_width + 2, "If github = Yes, a repository must be created on GitHub.", color)
+            stdscr.addstr(len(selected_section) + 3, column_0_width + 2, "The computer must be linked to the GitHub account.", color)
+
+        # Handle 'Create' option with missing fields
         if current_option == "Create":
-            missing_fields = [
-                field["label"] for section in CLI_INTERFACE.values() for field in section
-                if field.get("required") and not getattr(user_data, field["key"], "")
-            ]
-            if missing_fields:
+            valid, error_message = condition(user_data)
+            if not valid:
                 curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-                color = curses.color_pair(1)
-                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create (Missing Fields)", color)
-            elif user_data.github and not (user_data.author_github and user_data.git):
-                curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-                color = curses.color_pair(1)
-                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create (GitHub Requires Git and Author GitHub)", color)
-            elif not user_data.package_name.isidentifier() or os.path.exists(user_data.package_name):
-                curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-                color = curses.color_pair(1)
-                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create (Invalid Package Name)", color)
+                stdscr.addstr(1, column_0_width + 2, f"Press Enter to Create ({error_message})", curses.color_pair(1))
             else:
-                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create", curses.A_NORMAL)
+                curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
+                stdscr.addstr(1, column_0_width + 2, "Press Enter to Create", curses.color_pair(2))
 
         stdscr.refresh()
 
@@ -142,45 +179,40 @@ def cli(stdscr):
             focus_column = 0
 
         elif key == ord('\n'):  # Enter
+            if current_option == "Cancel":
+                break
+
             if current_option == "Create":
-                missing_fields = [
-                    field["label"] for section in CLI_INTERFACE.values() for field in section
-                    if field.get("required") and not getattr(user_data, field["key"], "")
-                ]
-                if missing_fields:
-                    stdscr.addstr(height - 2, 0, f"Missing required fields: {', '.join(missing_fields)}")
-                    stdscr.getch()
-                elif user_data.github and not (user_data.author_github and user_data.git):
-                    stdscr.addstr(height - 2, 0, "GitHub requires Git and Author GitHub to be set")
-                    stdscr.getch()
-                elif not user_data.package_name.isidentifier() or os.path.exists(user_data.package_name):
-                    stdscr.addstr(height - 2, 0, "Invalid package name")
+                valid, error_message = condition(user_data)
+                if not valid:
+                    stdscr.addstr(height - 2, 0, error_message)
                     stdscr.getch()
                 else:
                     user_data.dump_user_data()
                     stdscr.addstr(height - 2, 0, "Package in progress...")
                     create_structure(user_data)
                     break
+
             elif focus_column == 1 and selected_section:
                 field = selected_section[detail_index]
                 if field["type"] == "bool":
-                    current_value = getattr(user_data, field["key"], "")
+                    current_value = getattr(user_data, field["key"], False)
                     setattr(user_data, field["key"], not current_value)
+                    
                 elif field["type"] == "text":
                     current_value = getattr(user_data, field["key"], "")
                     stdscr.addstr(height - 2, 0, f"Edit {field['label']}: ")
                     curses.echo()
                     new_value = stdscr.getstr(height - 2, len(f"Edit {field['label']}: ")).decode("utf-8").strip()
                     curses.noecho()
-                    if len(new_value) == 0:
-                        new_value = None
-                    setattr(user_data, field["key"], new_value if new_value else current_value)
-                elif field["type"] == "command":
-                    if current_option == "GitHub Information" and field["label"] == "Auto-Generate":
-                        setattr(user_data, "author_github", f"https://github.com/{user_data.author_name}/{user_data.package_name}.git")
+                    setattr(user_data, field["key"], new_value if new_value else None)
 
-        elif key == ord('\x1b'):
-            break
+                elif field["type"] == "command":
+                    if current_option == "GitHub" and field["label"] == "Auto-Generate":
+                        if user_data.author_name and user_data.package_name:
+                            generated_url = f"https://github.com/{user_data.author_name}/{user_data.package_name}.git"
+                            setattr(user_data, "author_github", generated_url)
+
 
 if __name__ == '__main__':
     curses.wrapper(cli)

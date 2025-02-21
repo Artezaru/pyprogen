@@ -35,7 +35,11 @@ html_theme = "pydata_sphinx_theme"
 extensions = [
     "sphinx.ext.autodoc", # Automatically document the code
     "sphinx.ext.viewcode", # Add links to the code
+    "sphinx.ext.napoleon", # Support for Google and Numpy docstring formats
 ]
+
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
 
 # 3. Options for Latex output
 

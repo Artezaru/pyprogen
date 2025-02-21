@@ -41,6 +41,19 @@ class UserDataBinder:
 
     @property
     def author_name(self) -> Optional[str]:
+        """
+        Getter and setter for the author_name property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the author_name property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
         return self.user_data['author_name']
     
     @author_name.setter
@@ -51,6 +64,19 @@ class UserDataBinder:
 
     @property
     def author_email(self) -> Optional[str]:
+        """
+        Getter and setter for the author_email property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the author_email property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
         return self.user_data['author_email']
     
     @author_email.setter
@@ -61,6 +87,19 @@ class UserDataBinder:
     
     @property
     def author_github(self) -> Optional[str]:
+        """
+        Getter and setter for the author_github property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the author_github property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a string and is not None.
+        """
         return self.user_data['author_github']
     
     @author_github.setter
@@ -71,6 +110,19 @@ class UserDataBinder:
 
     @property
     def package_name(self) -> Optional[str]:
+        """
+        Getter and setter for the package_name property.
+
+        Parameters
+        ----------
+        value : Optional[str]
+            The value to set the package_name property to.
+        
+        Raises
+        ------
+        TypeError 
+            If the value is not a string and is not None.
+        """
         return self.user_data['package_name']
     
     @package_name.setter
@@ -81,6 +133,19 @@ class UserDataBinder:
     
     @property
     def doc(self) -> bool:
+        """
+        Getter and setter for the doc property.
+
+        Parameters
+        ----------
+        value : bool
+            The value to set the doc property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a boolean.
+        """
         return self.user_data['doc']
     
     @doc.setter
@@ -91,6 +156,19 @@ class UserDataBinder:
     
     @property
     def git(self) -> bool:
+        """
+        Getter and setter for the git property.
+
+        Parameters
+        ----------
+        value : bool
+            The value to set the git property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a boolean.
+        """
         return self.user_data['git']
     
     @git.setter
@@ -101,6 +179,19 @@ class UserDataBinder:
     
     @property
     def github(self) -> bool:
+        """
+        Getter and setter for the github property.
+
+        Parameters
+        ----------
+        value : bool
+            The value to set the github property to.
+        
+        Raises
+        ------
+        TypeError
+            If the value is not a boolean.
+        """
         return self.user_data['github']
     
     @github.setter
@@ -111,6 +202,19 @@ class UserDataBinder:
     
     @property
     def venv(self) -> bool:
+        """
+        Getter and setter for the venv property.
+
+        Parameters
+        ----------
+        value : bool
+            The value to set the venv property to.
+
+        Raises
+        ------
+        TypeError
+            If the value is not a boolean.
+        """
         return self.user_data['venv']
     
     @venv.setter
@@ -121,7 +225,27 @@ class UserDataBinder:
 
     def load_user_data(self) -> None:
         """
-        Load user data from the user_data.json file.
+        Load user data from the user_data.json file in the pyprogen.ressources package.
+
+        The user_data.json file contains the following structure:
+
+        .. code-block:: json
+
+            {
+                "author_name": null,
+                "author_email": null,
+                "author_github": null,
+                "package_name": null,
+                "doc": true,
+                "git": true,
+                "github": false,
+                "venv": true
+            }
+
+        Raises
+        ------
+        FileNotFoundError
+            If the user_data.json file is not found.
         """
         filepath = pkg_resources.files('pyprogen.ressources') / 'user_data.json'
         with open(filepath) as file:
@@ -129,7 +253,7 @@ class UserDataBinder:
 
     def dump_user_data(self) -> None:
         """
-        Dump user data to the user_data.json file.
+        Dump user data to the user_data.json file in the pyprogen.ressources package.
         """
         filepath = pkg_resources.files('pyprogen.ressources') / 'user_data.json'
         with open(filepath, 'w') as file:

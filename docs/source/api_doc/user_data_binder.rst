@@ -1,5 +1,5 @@
-pyprogen.user_data_binder
+pyprogen.UserDataBinder
 =========================
 
-.. autoclass:: pyprogen.user_data_binder
+.. autoclass:: pyprogen.UserDataBinder
     :members:

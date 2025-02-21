@@ -12,22 +12,55 @@ def create_structure(user_data: UserDataBinder) -> None:
     r"""
     Create the project structure according to the user data and the structure.json file.
 
+    .. warning::
+
+        If user_data.git is True, the user must have ``git`` installed on their machine.
+        To install git, please refer to the official documentation: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+    
+    .. warning::
+
+        If user_data.venv is True, the user must have ``venv`` installed on their machine.
+        To install venv, please refer to the official documentation: https://docs.python.org/3/library/venv.html
+
+    .. warning::
+
+        If user_data.github is True, the user must have a GitHub account and a repository must be created on GitHub.
+        The computer must be linked to the GitHub account otherwise the proccess will freeze because the user can't enter the GitHub credentials during the process.
+
+    It is recommended to use the CLI to create the project structure.
+
     Parameters
     ----------
     user_data : UserDataBinder
         The user data object.
+
+    Raises
+    ------
+    ValueError
+        If the user data does not contain the necessary information (author_name, author_email, package_name).
+        If the user data contains github=True and (author_github is None or git=False).
+        If the package name is not valid.
+        If the package name already exists.
+    FileNotFoundError
+        If the structure.json file is not found.
     """
 
-    # 0. Check if the user data contains the information needed
+    # 0. Check if the user data contains the information needed and if the package name is valid (no spaces or special characters) and available.
     print("[pyprogen] Checking user data ... ")
     if user_data.author_name is None or user_data.author_email is None or user_data.package_name is None:
         raise ValueError("author_name and author_email must be provided")
     
-    if user_data.github and user_data.author_github is None:
-        raise ValueError("author_github must be provided if github is True")
+    if user_data.github and (user_data.author_github is None or not user_data.git):
+        raise ValueError("author_github must be provided and git must be True if github is True")
+
+    if not user_data.package_name.isidentifier():
+        raise ValueError("Invalid package name")
+
+    if os.path.exists(user_data.package_name):
+        raise ValueError("Package name already exists")
 
     if user_data.author_github is None:
-        user_data.author_github = "" # Ensure the format string works
+        user_data.author_github = "" # Ensure the format string works correctly
 
     # 1. Get the structure
     print("[pyprogen] Loading structure ... ")
@@ -35,14 +68,7 @@ def create_structure(user_data: UserDataBinder) -> None:
     with open(filepath) as file:
         structure = json.load(file)
 
-    # 2. Check if the package name is valid (no spaces or special characters) and available
-    print("[pyprogen] Checking package name ... ")
-    if not user_data.package_name.isidentifier():
-        raise ValueError("Invalid package name")
-    if os.path.exists(user_data.package_name):
-        raise ValueError("Package name already exists")
-
-    # 3. Create the dictionnary to format the strings in the templates and paths
+    # 2. Create the dictionnary to format the strings in the templates and paths
     print("[pyprogen] Formatting the structure ... ")
     formatting = {}
     formatting["package_year"] = time.strftime("%Y")
@@ -51,7 +77,7 @@ def create_structure(user_data: UserDataBinder) -> None:
     formatting["author_email"] = user_data.author_email
     formatting["author_github"] = user_data.author_github
 
-    # 4. Load the key/path for directories and files to format the strings in the templates
+    # 3. Load the key/path for directories and files to format the strings in the templates
     for key, directory in structure["directories"].items():
         # Format the path
         path = directory["path"].format(**formatting)
