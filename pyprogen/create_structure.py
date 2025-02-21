@@ -136,7 +136,7 @@ def create_structure(user_data: UserDataBinder) -> None:
         print("[pyprogen] Creating virtual environment ... ")
         venv_path = formatting["venv_dir"]
         # Create the virtual environment
-        subprocess.run(["pip_path", "install", "virtualenv"])
+        subprocess.run([pip_path, "install", "virtualenv"])
         subprocess.run(["virtualenv", venv_path])
 
         # Activate the virtual environment and install the required packages
