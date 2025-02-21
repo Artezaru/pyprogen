@@ -25,6 +25,9 @@ Once you have created a new project by the CLI, (see :doc:`quick_start` section)
     |   |   ├── api.rst
     |   |   ├── usage.rst
     |   ├── build
+    ├── .github
+    ├── ├── workflows
+    ├── |   ├── documentation.yml
     ├── .gitignore
     ├── README.md
     ├── requirements.txt
