@@ -6,9 +6,11 @@ def main():
     r"""
     Main function to run the CLI application from the command line.
     """
-    create = curses.wrapper(cli)
+    create, user_data = curses.wrapper(cli)
     if create:
-        create_structure()
+        create_structure(user_data)
+    else:
+        print("Package creation cancelled.")
     
 if __name__ == "__main__":
     main()

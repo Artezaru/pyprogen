@@ -4,7 +4,7 @@ from .user_data_binder import UserDataBinder
 import os
 
 
-def cli(stdscr) -> bool:
+def cli(stdscr) -> Tuple[bool, UserDataBinder]:
     r"""
     Run the CLI interface.
     Allows users to navigate through menu options, edit user data, toggle boolean fields to generate the user data.
@@ -19,6 +19,8 @@ def cli(stdscr) -> bool:
     -------
     bool
         True if the package must be created, False otherwise.
+    UserDataBinder
+        The user data object.
     """
     # Initialize the user data
     user_data = UserDataBinder()
@@ -206,7 +208,7 @@ def cli(stdscr) -> bool:
                             setattr(user_data, "gitpage_doc", generated_doc)
     
     # End of the CLI interface
-    return create                     
+    return create, user_data                     
 
 if __name__ == '__main__':
     curses.wrapper(cli)
