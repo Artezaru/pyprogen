@@ -1,11 +1,14 @@
 from .cli import cli
+from .create_structure import create_structure
 import curses
 
 def main():
     r"""
     Main function to run the CLI application from the command line.
     """
-    curses.wrapper(cli)
+    create = curses.wrapper(cli)
+    if create:
+        create_structure()
     
 if __name__ == "__main__":
     main()

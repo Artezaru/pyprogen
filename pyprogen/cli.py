@@ -1,19 +1,24 @@
 import curses
 from typing import Tuple
 from .user_data_binder import UserDataBinder
-from .create_structure import create_structure
 import os
 
 
-def cli(stdscr):
+def cli(stdscr) -> bool:
     r"""
     Run the CLI interface.
-    Allows users to navigate through menu options, edit user data, toggle boolean fields, and execute create actions.
+    Allows users to navigate through menu options, edit user data, toggle boolean fields to generate the user data.
+    See the __main__.py file for the main function that calls this function and the create_structure function.
 
     Parameters
     ----------
     stdscr : curses.window
         The curses window object.
+
+    Returns
+    -------
+    bool
+        True if the package must be created, False otherwise.
     """
     # Initialize the user data
     user_data = UserDataBinder()
@@ -62,6 +67,8 @@ def cli(stdscr):
     current_option = "Author Informations"
     detail_index = 0
     focus_column = 0
+
+    create = False
 
     while True:
         stdscr.clear()
@@ -169,7 +176,7 @@ def cli(stdscr):
                 else:
                     user_data.dump_user_data()
                     stdscr.addstr(height - 2, 0, "Package in progress...")
-                    create_structure(user_data)
+                    create = True
                     break
 
             elif focus_column == 1 and selected_section:
@@ -197,7 +204,9 @@ def cli(stdscr):
                             setattr(user_data, "github_email", generate_email)
                             setattr(user_data, "github_repo", generated_url)
                             setattr(user_data, "gitpage_doc", generated_doc)
-                        
+    
+    # End of the CLI interface
+    return create                     
 
 if __name__ == '__main__':
     curses.wrapper(cli)
