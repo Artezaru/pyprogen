@@ -1,5 +1,5 @@
-Setting Manually the Documentation
-==================================
+Setting Manually the Documentation for Sphinx
+=============================================
 
 If the documentation is not set up automatically, you can configure it manually by following these steps.
 
@@ -73,7 +73,7 @@ If you want to host the documentation on **GitHub Pages**, follow these steps:
 1. Initialize a new branch named **gh-pages** in your Git repository.
 2. Push the contents of the ``docs/build/html/`` folder to the **gh-pages** branch.
 
-Refer to the :doc:`git_setup` section for detailed instructions on setting up Git for your project.
+Refer to the :doc:`git_setup` section for detailed instructions.
 
 .. note::
 

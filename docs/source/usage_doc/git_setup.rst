@@ -66,6 +66,7 @@ To host your documentation on **GitHub Pages**, you need to create a dedicated b
 
    .. code-block:: console
 
+       cd ..
        git checkout master
 
 6. **Remove** the existing `html` folder to prepare for linking the `gh-pages` branch:

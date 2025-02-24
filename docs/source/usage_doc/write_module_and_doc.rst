@@ -7,13 +7,15 @@ Before starting, ensure that you have:
 
 - Created a new project (see :doc:`quick_start`)  
 - Activated the virtual environment (see :doc:`activate_venv`)
+- Set up documentation (see :doc:`documentation_setup`)
 
 Writing Modules
 ---------------
 
 To add new functionality, create Python files inside your package directory (e.g., `<package>/`) and document them using **Numpydoc** style.
 
-### Example: Adding a Function
+Example: Adding a Function
+**************************
 
 1. **Create** a file (e.g., `add.py`) and define your function:
 
@@ -57,7 +59,8 @@ To add new functionality, create Python files inside your package directory (e.g
 
     __all__ = ["add"]
 
-### Using Relative Imports
+Using Relative Imports
+**********************
 
 When importing functions from other modules within your package, use **relative imports**. For example, if `add.py` needs to import `multiply` from `multiply.py`:
 
@@ -76,7 +79,8 @@ Use **Sphinx** and **Numpydoc** to document your project. The project is pre-con
 
 > See [Sphinx Docs](https://www.sphinx-doc.org/en/master/) and [Numpydoc Docs](https://numpydoc.readthedocs.io/en/latest/format.html) for more details.
 
-### Documenting Functions
+Documenting Functions
+*********************
 
 1. **Create an `.rst` file** in `docs/source/api_doc/` for each module. Example for `add.py`:
 
@@ -103,13 +107,20 @@ Building the Documentation
 --------------------------
 
 1. **Activate** the virtual environment.
-2. **Build** the HTML documentation:
+
+2. **Clean** any previous build artifacts:
+
+.. code-block:: console
+
+    make clean
+
+3. **Build** the HTML documentation:
 
 .. code-block:: console
 
     make html
 
-3. Open the documentation:
+4. Open the documentation:
 
 .. code-block:: console
 
@@ -127,4 +138,4 @@ Best Practices
 Next Steps
 ----------
 
-To learn more about **building documentation** and pushing to **GitHub**, see the :doc:`use_git` section.
+To learn more about process for **building documentation** and pushing to **GitHub**, see the :doc:`use_git` section.

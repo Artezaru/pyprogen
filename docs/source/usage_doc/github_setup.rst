@@ -44,7 +44,7 @@ Pushing Your Code to GitHub
 
 Once the remote is set up, you can push your code to GitHub. Follow the instructions in the :doc:`use_git` section to properly commit and push your changes.
 
-For a quick initial push, use the following commands:
+For a quick initial push, use the following commands from the root of your project:
 
 .. code-block:: console
 
@@ -55,6 +55,12 @@ For a quick initial push, use the following commands:
 .. note::
 
    If you're using **main** as the default branch instead of **master**, replace `master` with `main` in the commands above.
+
+.. warning::
+
+    With GitHub repositories, you may need to authenticate your account before pushing. Follow the instructions in the terminal to complete the process.
+    According your security settings, you may need to use a **Personal Access Token** instead of your password.
+    Please refer to the `GitHub Documentation <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ for more information.
 
 Next Steps
 ----------
