@@ -8,6 +8,7 @@ This guide explains how to **commit**, **push** your **package**, and **build** 
     For more details on Git commands, refer to the `Git Documentation <https://git-scm.com/doc>`_.
 
 Before you begin, ensure you have updating the version of your package in ``__version__.py`` (see :doc:`project_structure` section).
+You must have followed the steps in the :doc:`documentation_setup`, :doc:`git_setup`, and :doc:`github_setup` sections.
 
 Committing and Pushing the Package
 ----------------------------------
@@ -37,7 +38,8 @@ Building and Pushing Documentation
 
 After updating your code and documentation, follow these steps to **build** and **deploy** the documentation using **Sphinx** and **GitHub Pages**.
 
-### 1. Build the Documentation
+1. Build the Documentation
+**************************
 
 1. **Activate** the virtual environment:
 
@@ -66,7 +68,8 @@ After updating your code and documentation, follow these steps to **build** and 
 
    The generated documentation will be located in `docs/build/html/`.
 
-### 2. Deploy Documentation to GitHub Pages
+2. Deploy Documentation to GitHub Pages
+****************************************
 
 1. **Navigate** to the built documentation:
 
@@ -74,11 +77,19 @@ After updating your code and documentation, follow these steps to **build** and 
 
        cd docs/build/html
 
-2. **Check out** the `gh-pages` branch (create if needed):
+2. **Switch** to the `gh-pages` branch if not already on it:
 
-   .. code-block:: console
+To check if the `gh-pages` branch is the current branch, run:
 
-       git checkout gh-pages
+.. code-block:: console
+
+    git branch
+
+If not on the `gh-pages` branch, switch to it:
+
+.. code-block:: console
+
+    git checkout gh-pages
 
 3. **Stage** and **commit** the documentation:
 

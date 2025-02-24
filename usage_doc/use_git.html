@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Using Git to Commit, Push Code &amp; Build Documentation &#8212; pyprogen 1.1.1 documentation</title>
+    <title>Using Git to Commit, Push Code &amp; Build Documentation &#8212; pyprogen 1.1.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/documentation_options.js?v=00f267c6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/use_git';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.1 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.4 documentation</p>
   
 </a></div>
     
@@ -267,10 +267,10 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation for Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
@@ -340,7 +340,8 @@
 <p class="admonition-title">See also</p>
 <p>For more details on Git commands, refer to the <a class="reference external" href="https://git-scm.com/doc">Git Documentation</a>.</p>
 </div>
-<p>Before you begin, ensure you have updating the version of your package in <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> (see <a class="reference internal" href="project_structure.html"><span class="doc">Project Structure</span></a> section).</p>
+<p>Before you begin, ensure you have updating the version of your package in <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> (see <a class="reference internal" href="project_structure.html"><span class="doc">Project Structure</span></a> section).
+You must have followed the steps in the <a class="reference internal" href="documentation_setup.html"><span class="doc">Setting Manually the Documentation for Sphinx</span></a>, <a class="reference internal" href="git_setup.html"><span class="doc">Setting Up Git Manually</span></a>, and <a class="reference internal" href="github_setup.html"><span class="doc">Setting Up GitHub Manually</span></a> sections.</p>
 <section id="committing-and-pushing-the-package">
 <h2>Committing and Pushing the Package<a class="headerlink" href="#committing-and-pushing-the-package" title="Link to this heading">#</a></h2>
 <ol class="arabic">
@@ -365,7 +366,8 @@
 <section id="building-and-pushing-documentation">
 <h2>Building and Pushing Documentation<a class="headerlink" href="#building-and-pushing-documentation" title="Link to this heading">#</a></h2>
 <p>After updating your code and documentation, follow these steps to <strong>build</strong> and <strong>deploy</strong> the documentation using <strong>Sphinx</strong> and <strong>GitHub Pages</strong>.</p>
-<p>### 1. Build the Documentation</p>
+<section id="build-the-documentation">
+<h3>1. Build the Documentation<a class="headerlink" href="#build-the-documentation" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p><strong>Activate</strong> the virtual environment:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source venv/bin/activate  # On Unix/MacOS</span>
@@ -390,18 +392,26 @@
 <p>The generated documentation will be located in <cite>docs/build/html/</cite>.</p>
 </li>
 </ol>
-<p>### 2. Deploy Documentation to GitHub Pages</p>
+</section>
+<section id="deploy-documentation-to-github-pages">
+<h3>2. Deploy Documentation to GitHub Pages<a class="headerlink" href="#deploy-documentation-to-github-pages" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><p><strong>Navigate</strong> to the built documentation:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd docs/build/html</span>
 </pre></div>
 </div>
 </li>
-<li><p><strong>Check out</strong> the <cite>gh-pages</cite> branch (create if needed):</p>
+<li><p><strong>Switch</strong> to the <cite>gh-pages</cite> branch if not already on it:</p></li>
+</ol>
+<p>To check if the <cite>gh-pages</cite> branch is the current branch, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git branch</span>
+</pre></div>
+</div>
+<p>If not on the <cite>gh-pages</cite> branch, switch to it:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout gh-pages</span>
 </pre></div>
 </div>
-</li>
+<ol class="arabic" start="3">
 <li><p><strong>Stage</strong> and <strong>commit</strong> the documentation:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add -A .</span>
 <span class="go">git commit -m &quot;Update documentation&quot;</span>
@@ -419,6 +429,7 @@
 </div>
 </li>
 </ol>
+</section>
 </section>
 <section id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
@@ -486,7 +497,11 @@
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-and-pushing-the-package">Committing and Pushing the Package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-and-pushing-documentation">Building and Pushing Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-and-pushing-documentation">Building and Pushing Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-documentation">1. Build the Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-documentation-to-github-pages">2. Deploy Documentation to GitHub Pages</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 </ul>

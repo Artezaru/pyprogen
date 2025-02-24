@@ -11,6 +11,7 @@ Before using **pyprogen**, ensure that the following dependencies are installed 
 - git (required for Git-related features)
 
 To automatically link a project to a GitHub repository, you must have a **GitHub account** and an existing repository on GitHub.
+Futhermore, your computer must have **access** to the repository, and your **credentials** must be linked with your devise.
 
 .. note::
 
@@ -85,11 +86,13 @@ GitHub Integration
    :align: center
 
 In this section, you can enter a **GitHub repository URL** to link your project.
+Use the **"Auto-generate"** option to automatically fill the repository URL based on the author's name and package name.
 
 .. warning::
 
    - The repository must already exist on GitHub before creating the project.
    - Your computer must have **access** to the repository, and your **credentials** must be stored in the Git configuration.
+   - **"Git"** must be **Yes** in the **Package Setup** section to enable this feature.
 
 Creating the Project
 --------------------

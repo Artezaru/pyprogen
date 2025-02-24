@@ -14,7 +14,7 @@ Il the various files please replace the following placeholders:
 - `{*_dir}`: The path of the corresponding directory.
 - `{*_file}`: The path of the corresponding file. 
 
-Also replace the `{{` and `}}` by `{` and `}` respectively.
+Also replace the `{{` and `}}` by `{` and `}` respectively (in ``setup.py`` and ``conf.py`` files).
 
 __init__.py
 -----------

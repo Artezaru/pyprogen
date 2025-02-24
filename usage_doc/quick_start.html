@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quick Start &#8212; pyprogen 1.1.1 documentation</title>
+    <title>Quick Start &#8212; pyprogen 1.1.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/documentation_options.js?v=00f267c6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/quick_start';</script>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.1 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.4 documentation</p>
   
 </a></div>
     
@@ -267,10 +267,10 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation for Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
@@ -343,12 +343,13 @@
 <li><p>pip</p></li>
 <li><p>git (required for Git-related features)</p></li>
 </ul>
-<p>To automatically link a project to a GitHub repository, you must have a <strong>GitHub account</strong> and an existing repository on GitHub.</p>
+<p>To automatically link a project to a GitHub repository, you must have a <strong>GitHub account</strong> and an existing repository on GitHub.
+Futhermore, your computer must have <strong>access</strong> to the repository, and your <strong>credentials</strong> must be linked with your devise.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following sections provide step-by-step instructions for manually setting up documentation, Git, or a GitHub repository:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="documentation_setup.html"><span class="doc">Setting Manually the Documentation</span></a></p></li>
+<li><p><a class="reference internal" href="documentation_setup.html"><span class="doc">Setting Manually the Documentation for Sphinx</span></a></p></li>
 <li><p><a class="reference internal" href="git_setup.html"><span class="doc">Setting Up Git Manually</span></a></p></li>
 <li><p><a class="reference internal" href="github_setup.html"><span class="doc">Setting Up GitHub Manually</span></a></p></li>
 </ul>
@@ -400,12 +401,14 @@
 <section id="github-integration">
 <h3>GitHub Integration<a class="headerlink" href="#github-integration" title="Link to this heading">#</a></h3>
 <img alt="GitHub Section" class="align-center" src="../_images/github.png" />
-<p>In this section, you can enter a <strong>GitHub repository URL</strong> to link your project.</p>
+<p>In this section, you can enter a <strong>GitHub repository URL</strong> to link your project.
+Use the <strong>“Auto-generate”</strong> option to automatically fill the repository URL based on the author’s name and package name.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
 <li><p>The repository must already exist on GitHub before creating the project.</p></li>
 <li><p>Your computer must have <strong>access</strong> to the repository, and your <strong>credentials</strong> must be stored in the Git configuration.</p></li>
+<li><p><strong>“Git”</strong> must be <strong>Yes</strong> in the <strong>Package Setup</strong> section to enable this feature.</p></li>
 </ul>
 </div>
 </section>

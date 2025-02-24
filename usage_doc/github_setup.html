@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Setting Up GitHub Manually &#8212; pyprogen 1.1.1 documentation</title>
+    <title>Setting Up GitHub Manually &#8212; pyprogen 1.1.4 documentation</title>
   
   
   
@@ -38,13 +38,13 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/documentation_options.js?v=00f267c6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/github_setup';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using Virtual Environments" href="activate_venv.html" />
+    <link rel="next" title="Write Modules and Documentation" href="write_module_and_doc.html" />
     <link rel="prev" title="Setting Up Git Manually" href="git_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.1 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.4 documentation</p>
   
 </a></div>
     
@@ -267,10 +267,10 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation for Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting Up GitHub Manually</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
@@ -370,7 +370,7 @@
 <section id="pushing-your-code-to-github">
 <h2>Pushing Your Code to GitHub<a class="headerlink" href="#pushing-your-code-to-github" title="Link to this heading">#</a></h2>
 <p>Once the remote is set up, you can push your code to GitHub. Follow the instructions in the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section to properly commit and push your changes.</p>
-<p>For a quick initial push, use the following commands:</p>
+<p>For a quick initial push, use the following commands from the root of your project:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add -A .</span>
 <span class="go">git commit -m &quot;Initial commit&quot;</span>
 <span class="go">git push -u origin master</span>
@@ -379,6 +379,12 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you’re using <strong>main</strong> as the default branch instead of <strong>master</strong>, replace <cite>master</cite> with <cite>main</cite> in the commands above.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With GitHub repositories, you may need to authenticate your account before pushing. Follow the instructions in the terminal to complete the process.
+According your security settings, you may need to use a <strong>Personal Access Token</strong> instead of your password.
+Please refer to the <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub Documentation</a> for more information.</p>
 </div>
 </section>
 <section id="next-steps">
@@ -410,11 +416,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="activate_venv.html"
+       href="write_module_and_doc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Using Virtual Environments</p>
+        <p class="prev-next-title">Write Modules and Documentation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

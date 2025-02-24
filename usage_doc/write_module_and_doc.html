@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Write Modules and Documentation &#8212; pyprogen 1.1.1 documentation</title>
+    <title>Write Modules and Documentation &#8212; pyprogen 1.1.4 documentation</title>
   
   
   
@@ -38,14 +38,14 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/documentation_options.js?v=00f267c6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/write_module_and_doc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using Git to Commit, Push Code &amp; Build Documentation" href="use_git.html" />
-    <link rel="prev" title="Using Virtual Environments" href="activate_venv.html" />
+    <link rel="prev" title="Setting Up GitHub Manually" href="github_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.1 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.4 documentation</p>
   
 </a></div>
     
@@ -267,10 +267,10 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation for Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
-<li class="toctree-l1"><a class="reference internal" href="activate_venv.html">Using Virtual Environments</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Write Modules and Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
@@ -340,11 +340,13 @@
 <ul class="simple">
 <li><p>Created a new project (see <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a>)</p></li>
 <li><p>Activated the virtual environment (see <a class="reference internal" href="activate_venv.html"><span class="doc">Using Virtual Environments</span></a>)</p></li>
+<li><p>Set up documentation (see <a class="reference internal" href="documentation_setup.html"><span class="doc">Setting Manually the Documentation for Sphinx</span></a>)</p></li>
 </ul>
 <section id="writing-modules">
 <h2>Writing Modules<a class="headerlink" href="#writing-modules" title="Link to this heading">#</a></h2>
 <p>To add new functionality, create Python files inside your package directory (e.g., <cite>&lt;package&gt;/</cite>) and document them using <strong>Numpydoc</strong> style.</p>
-<p>### Example: Adding a Function</p>
+<section id="example-adding-a-function">
+<h3>Example: Adding a Function<a class="headerlink" href="#example-adding-a-function" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Create</strong> a file (e.g., <cite>add.py</cite>) and define your function:</p></li>
 </ol>
@@ -387,11 +389,14 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>### Using Relative Imports</p>
+</section>
+<section id="using-relative-imports">
+<h3>Using Relative Imports<a class="headerlink" href="#using-relative-imports" title="Link to this heading">#</a></h3>
 <p>When importing functions from other modules within your package, use <strong>relative imports</strong>. For example, if <cite>add.py</cite> needs to import <cite>multiply</cite> from <cite>multiply.py</cite>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.multiply</span><span class="w"> </span><span class="kn">import</span> <span class="n">multiply</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="writing-documentation">
 <h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Link to this heading">#</a></h2>
@@ -402,7 +407,8 @@
 <li><p><strong>LaTeX</strong> rendering for math equations.</p></li>
 </ul>
 <p>&gt; See [Sphinx Docs](<a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a>) and [Numpydoc Docs](<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">https://numpydoc.readthedocs.io/en/latest/format.html</a>) for more details.</p>
-<p>### Documenting Functions</p>
+<section id="documenting-functions">
+<h3>Documenting Functions<a class="headerlink" href="#documenting-functions" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Create an `.rst` file</strong> in <cite>docs/source/api_doc/</cite> for each module. Example for <cite>add.py</cite>:</p></li>
 </ol>
@@ -425,16 +431,23 @@
 </pre></div>
 </div>
 </section>
+</section>
 <section id="building-the-documentation">
 <h2>Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Activate</strong> the virtual environment.</p></li>
+<li><p><strong>Clean</strong> any previous build artifacts:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make clean</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
 <li><p><strong>Build</strong> the HTML documentation:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make html</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li><p>Open the documentation:</p></li>
 </ol>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docs/build/html/index.html</span>
@@ -453,7 +466,7 @@
 </section>
 <section id="next-steps">
 <h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
-<p>To learn more about <strong>building documentation</strong> and pushing to <strong>GitHub</strong>, see the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section.</p>
+<p>To learn more about process for <strong>building documentation</strong> and pushing to <strong>GitHub</strong>, see the <a class="reference internal" href="use_git.html"><span class="doc">Using Git to Commit, Push Code &amp; Build Documentation</span></a> section.</p>
 </section>
 </section>
 
@@ -468,12 +481,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="activate_venv.html"
+       href="github_setup.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Using Virtual Environments</p>
+        <p class="prev-next-title">Setting Up GitHub Manually</p>
       </div>
     </a>
     <a class="right-next"
@@ -504,8 +517,15 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-modules">Writing Modules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-modules">Writing Modules</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-adding-a-function">Example: Adding a Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-relative-imports">Using Relative Imports</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-documentation">Writing Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-functions">Documenting Functions</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the Documentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>

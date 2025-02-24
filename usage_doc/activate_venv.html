@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Using Virtual Environments &#8212; pyprogen 1.1.1 documentation</title>
+    <title>Using Virtual Environments &#8212; pyprogen 1.1.4 documentation</title>
   
   
   
@@ -38,14 +38,14 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/documentation_options.js?v=00f267c6"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/activate_venv';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Write Modules and Documentation" href="write_module_and_doc.html" />
-    <link rel="prev" title="Setting Up GitHub Manually" href="github_setup.html" />
+    <link rel="next" title="Setting Manually the Documentation for Sphinx" href="documentation_setup.html" />
+    <link rel="prev" title="Project Structure" href="project_structure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.1 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.4 documentation</p>
   
 </a></div>
     
@@ -267,10 +267,10 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation_setup.html">Setting Manually the Documentation for Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setting Up Git Manually</a></li>
 <li class="toctree-l1"><a class="reference internal" href="github_setup.html">Setting Up GitHub Manually</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="write_module_and_doc.html">Write Modules and Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_git.html">Using Git to Commit, Push Code &amp; Build Documentation</a></li>
 </ul>
@@ -340,6 +340,11 @@
 <h2>Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading">#</a></h2>
 <p>To create a new virtual environment in your project, navigate to the <strong>root</strong> of the project and run the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python -m venv venv</span>
+</pre></div>
+</div>
+<p>The virtual environment package <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> can be used as an alternative to the built-in <code class="docutils literal notranslate"><span class="pre">venv</span></code> module:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install virtualenv</span>
+<span class="go">virtualenv venv</span>
 </pre></div>
 </div>
 <p>This will create a new directory named <strong>`venv`</strong> containing the isolated Python environment.</p>
@@ -420,20 +425,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="github_setup.html"
+       href="project_structure.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Setting Up GitHub Manually</p>
+        <p class="prev-next-title">Project Structure</p>
       </div>
     </a>
     <a class="right-next"
-       href="write_module_and_doc.html"
+       href="documentation_setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Write Modules and Documentation</p>
+        <p class="prev-next-title">Setting Manually the Documentation for Sphinx</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

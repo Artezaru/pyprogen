@@ -12,10 +12,20 @@ To create a new virtual environment in your project, navigate to the **root** of
 
     python -m venv venv
 
+The virtual environment package ``virtualenv`` can be used as an alternative to the built-in ``venv`` module:
+
+.. code-block:: console
+
+    pip install virtualenv
+    virtualenv venv
+
 This will create a new directory named **`venv`** containing the isolated Python environment.
 
 - **`venv/`** — The directory that holds the virtual environment.  
 - **`Scripts/`** (Windows) or **`bin/`** (Unix) — Contains activation scripts and executables.
+
+
+
 
 Activating the Virtual Environment
 ----------------------------------
