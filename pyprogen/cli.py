@@ -198,7 +198,7 @@ def cli(stdscr) -> Tuple[bool, UserDataBinder]:
                 elif field["type"] == "command":
                     if current_option == "GitHub" and field["label"] == "Auto-Generate":
                         if user_data.author_name and user_data.package_name:
-                            generate_author = user_data.author_name.replace(" ", "-").lower()
+                            generate_author = user_data.author_name.replace(" ", "-")
                             generate_email = user_data.author_email
                             generated_url = f"https://github.com/{generate_author}/{user_data.package_name}.git"
                             generated_doc = f"https://{generate_author}.github.io/{user_data.package_name}"
