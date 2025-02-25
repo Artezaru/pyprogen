@@ -7,8 +7,6 @@ Description of the package
 ``pyprogen`` is a package to generate Python project from Command Line Interface.
 The structure of the generated project is based on the :doc:`../usage_doc/project_structure`.
 
-
-
 Contents
 --------
 
