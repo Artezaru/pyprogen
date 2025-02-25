@@ -124,6 +124,14 @@
             "if_venv" : false
         },
 
+        "tests_init_file" : {
+            "path" : "tests/__init__.py",
+            "template" : "tests_init.txt",
+            "if_doc" : false,
+            "if_git" : false,
+            "if_venv" : false
+        },
+
         "documentation_conf_file" : {
             "path" : "docs/source/conf.py",
             "template" : "documentation_conf.txt",

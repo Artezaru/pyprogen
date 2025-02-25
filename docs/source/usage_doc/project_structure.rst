@@ -13,6 +13,7 @@ Once you have created a new project using the CLI (see the :doc:`quick_start` se
     │   └── ressources
     │       └── __init__.py
     ├── tests
+    |   ├── __init__.py
     ├── examples
     ├── laboratory
     ├── venv
@@ -54,6 +55,7 @@ tests
 ~~~~~
 
 The **tests** directory contains unit tests for the project, ensuring code correctness and reliability.
+The module ``pytest`` is installed to run the tests.
 
 examples
 ~~~~~~~~

@@ -133,13 +133,17 @@ def create_structure(user_data: UserDataBinder) -> None:
         # Activate the virtual environment and install the required packages
         pip_path = os.path.join(venv_path, "bin", "pip")
 
-    # 7. Installing the package for the documentation
+    # 7. Installing the package for the tests
+    print("[pyprogen] Installing testing tools ... ")
+    subprocess.run([pip_path, "install", "pytest"])
+
+    # 8. Installing the package for the documentation
     if user_data.doc:
         print("[pyprogen] Installing documentation tools ... ")
         subprocess.run([pip_path, "install", "sphinx"])
         subprocess.run([pip_path, "install", "pydata_sphinx_theme"])
     
-    # 8. Setting up git
+    # 9. Setting up git
     if user_data.git:
         print("[pyprogen] Setting up git ... ")
         os.system("git init")
@@ -159,7 +163,7 @@ def create_structure(user_data: UserDataBinder) -> None:
             os.system("git worktree add -f html gh-pages")
             os.chdir(formatting["parent_dir"])
 
-    # 9. Setting the connection to GitHub
+    # 10. Setting the connection to GitHub
     if user_data.github:
         print("[pyprogen] Setting up GitHub ... ")
         os.system("git config user.name {github_username}".format(**formatting))

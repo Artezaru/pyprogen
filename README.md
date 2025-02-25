@@ -19,6 +19,7 @@ pyprogen
     │   ├── ressources
     │   │   ├── __init__.py
     ├── tests
+    |   ├── __init__.py
     ├── examples
     ├── laboratory
     ├── venv
