@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ressources files &#8212; pyprogen 1.1.5 documentation</title>
+    <title>Ressources files &#8212; pyprogen 1.1.6 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=a48ae3df"></script>
+    <script src="_static/documentation_options.js?v=937269b5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ressources';</script>
@@ -109,7 +109,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.1.5 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.6 documentation</p>
   
 </a></div>
     
@@ -434,7 +434,7 @@ See LICENSE
     <span class="n">long_description</span><span class="o">=</span><span class="n">read_long_description</span><span class="p">(),</span> <span class="c1"># Update the long description as necessary</span>
     <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">&quot;text/markdown&quot;</span><span class="p">,</span>  <span class="c1"># Format of the long description</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{github_repo}</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># URL to the package&#39;s homepage</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>  <span class="c1"># Automatically find packages in the directory</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="s2">&quot;tests.*&quot;</span><span class="p">]),</span>  <span class="c1"># Automatically find packages in the directory</span>
     <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
         <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
         <span class="s2">&quot;License :: OSI Approved :: Apache Software License&quot;</span><span class="p">,</span>
