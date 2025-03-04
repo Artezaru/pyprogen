@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyprogen.create_structure &#8212; pyprogen 1.0.8 documentation</title>
+    <title>pyprogen.create_structure &#8212; pyprogen 1.1.7 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=aec50437"></script>
+    <script src="../../_static/documentation_options.js?v=370aedac"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyprogen/create_structure';</script>
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.0.8 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.7 documentation</p>
   
 </a></div>
     
@@ -131,6 +131,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -215,6 +222,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -433,31 +447,37 @@
         <span class="c1"># Activate the virtual environment and install the required packages</span>
         <span class="n">pip_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">venv_path</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="s2">&quot;pip&quot;</span><span class="p">)</span>
 
-    <span class="c1"># 7. Installing the package for the documentation</span>
+    <span class="c1"># 7. Installing the package for the tests</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Installing testing tools ... &quot;</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">pip_path</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;pytest&quot;</span><span class="p">])</span>
+
+    <span class="c1"># 8. Installing the package for the documentation</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Installing documentation tools ... &quot;</span><span class="p">)</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">pip_path</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;sphinx&quot;</span><span class="p">])</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">pip_path</span><span class="p">,</span> <span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;pydata_sphinx_theme&quot;</span><span class="p">])</span>
     
-    <span class="c1"># 8. Setting up git</span>
+    <span class="c1"># 9. Setting up git</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">git</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Setting up git ... &quot;</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git init&quot;</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add -A .&quot;</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git commit -m &quot;Initial commit&quot;&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;documentation_build_dir&quot;</span><span class="p">])</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_html_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git checkout --orphan gh-pages&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git reset --hard&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git commit --allow-empty -m &#39;Initializing gh-pages branch&#39;&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_build_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;parent_dir&quot;</span><span class="p">])</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git checkout master&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;rm -rf html&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git worktree add html gh-pages&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;documentation_build_dir&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;html&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;rm -rf html&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git worktree add -f html gh-pages&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;parent_dir&quot;</span><span class="p">])</span>
 
-    <span class="c1"># 9. Setting the connection to GitHub</span>
+    <span class="c1"># 10. Setting the connection to GitHub</span>
     <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">github</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Setting up GitHub ... &quot;</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git config user.name </span><span class="si">{github_username}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
@@ -467,11 +487,11 @@
         <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">doc</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;make clean&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;make html&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{documentation_html_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;documentation_html_dir&quot;</span><span class="p">])</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git add A- .&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git commit -m &#39;Update documentation&#39;&quot;</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;git push origin gh-pages&quot;</span><span class="p">)</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;cd </span><span class="si">{parent_dir}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">formatting</span><span class="p">))</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">formatting</span><span class="p">[</span><span class="s2">&quot;parent_dir&quot;</span><span class="p">])</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyprogen] Done!&quot;</span><span class="p">)</span></div>
 

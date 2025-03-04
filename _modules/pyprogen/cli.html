@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyprogen.cli &#8212; pyprogen 1.0.8 documentation</title>
+    <title>pyprogen.cli &#8212; pyprogen 1.1.7 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=aec50437"></script>
+    <script src="../../_static/documentation_options.js?v=370aedac"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyprogen/cli';</script>
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">pyprogen 1.0.8 documentation</p>
+    <p class="title logo__title">pyprogen 1.1.7 documentation</p>
   
 </a></div>
     
@@ -131,6 +131,13 @@
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="../../usage.html">
     Usage
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../ressources.html">
+    Ressources files
   </a>
 </li>
 
@@ -218,6 +225,13 @@
   </a>
 </li>
 
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../ressources.html">
+    Ressources files
+  </a>
+</li>
+
   </ul>
 </nav></div>
           
@@ -299,21 +313,28 @@
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">curses</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.user_data_binder</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserDataBinder</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.create_structure</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_structure</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
 <div class="viewcode-block" id="cli">
 <a class="viewcode-back" href="../../api_doc/cli.html#pyprogen.cli">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">cli</span><span class="p">(</span><span class="n">stdscr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cli</span><span class="p">(</span><span class="n">stdscr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">UserDataBinder</span><span class="p">]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Run the CLI interface.</span>
-<span class="sd">    Allows users to navigate through menu options, edit user data, toggle boolean fields, and execute create actions.</span>
+<span class="sd">    Allows users to navigate through menu options, edit user data, toggle boolean fields to generate the user data.</span>
+<span class="sd">    See the __main__.py file for the main function that calls this function and the create_structure function.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    stdscr : curses.window</span>
 <span class="sd">        The curses window object.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True if the package must be created, False otherwise.</span>
+<span class="sd">    UserDataBinder</span>
+<span class="sd">        The user data object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Initialize the user data</span>
     <span class="n">user_data</span> <span class="o">=</span> <span class="n">UserDataBinder</span><span class="p">()</span>
@@ -362,6 +383,8 @@
     <span class="n">current_option</span> <span class="o">=</span> <span class="s2">&quot;Author Informations&quot;</span>
     <span class="n">detail_index</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">focus_column</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">create</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">stdscr</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -469,7 +492,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">user_data</span><span class="o">.</span><span class="n">dump_user_data</span><span class="p">()</span>
                     <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Package in progress...&quot;</span><span class="p">)</span>
-                    <span class="n">create_structure</span><span class="p">(</span><span class="n">user_data</span><span class="p">)</span>
+                    <span class="n">create</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="k">break</span>
 
             <span class="k">elif</span> <span class="n">focus_column</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">selected_section</span><span class="p">:</span>
@@ -489,16 +512,18 @@
                 <span class="k">elif</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;command&quot;</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">current_option</span> <span class="o">==</span> <span class="s2">&quot;GitHub&quot;</span> <span class="ow">and</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Auto-Generate&quot;</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span> <span class="ow">and</span> <span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="p">:</span>
-                            <span class="n">generate_author</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                            <span class="n">generate_author</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
                             <span class="n">generate_email</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">author_email</span>
                             <span class="n">generated_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://github.com/</span><span class="si">{</span><span class="n">generate_author</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">.git&quot;</span>
                             <span class="n">generated_doc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">generate_author</span><span class="si">}</span><span class="s2">.github.io/</span><span class="si">{</span><span class="n">user_data</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&quot;</span>
                             <span class="nb">setattr</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span> <span class="s2">&quot;github_username&quot;</span><span class="p">,</span> <span class="n">generate_author</span><span class="p">)</span>
                             <span class="nb">setattr</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span> <span class="s2">&quot;github_email&quot;</span><span class="p">,</span> <span class="n">generate_email</span><span class="p">)</span>
                             <span class="nb">setattr</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span> <span class="s2">&quot;github_repo&quot;</span><span class="p">,</span> <span class="n">generated_url</span><span class="p">)</span>
-                            <span class="nb">setattr</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span> <span class="s2">&quot;gitpage_doc&quot;</span><span class="p">,</span> <span class="n">generated_doc</span><span class="p">)</span></div>
+                            <span class="nb">setattr</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span> <span class="s2">&quot;gitpage_doc&quot;</span><span class="p">,</span> <span class="n">generated_doc</span><span class="p">)</span>
+    
+    <span class="c1"># End of the CLI interface</span>
+    <span class="k">return</span> <span class="n">create</span><span class="p">,</span> <span class="n">user_data</span>                     </div>
 
-                        
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">curses</span><span class="o">.</span><span class="n">wrapper</span><span class="p">(</span><span class="n">cli</span><span class="p">)</span>
