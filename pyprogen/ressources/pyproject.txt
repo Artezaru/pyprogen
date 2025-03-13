@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools>=42"]
+requires = [
+  "setuptools>=42",
+  "setuptools-scm>=8.0"
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -17,6 +20,9 @@ classifiers = [
 where = ["."]
 include = ["{package_name}", "{package_name}*"]
 exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
+
+[tool.setuptools.package-data]
+{package_name} = ["{package_name}/*"]
 
 [project.scripts]
 {package_name} = "{package_name}.__main__:__main__"

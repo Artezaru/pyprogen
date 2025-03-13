@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools>=42"]
+requires = [
+  "setuptools>=42",
+  "setuptools-scm>=8.0"
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -20,12 +23,8 @@ where = ["."]
 include = ["pyprogen", "pyprogen*"]
 exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
 
-[tool.setuptools.package_data]
-pyprogen = [
-    "resources/*.json",
-    "resources/*.txt",
-    "config/*.yaml"
-]
+[tool.setuptools.package-data]
+pyprogen = ["pyprogen/*"]
 
 [project.scripts]
 pyprogen = "pyprogen.__main__:__main__"
