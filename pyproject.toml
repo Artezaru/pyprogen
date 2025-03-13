@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyprogen"
+requires-python = ">= 3.8"
+dynamic = ["dependencies", "version"]
+description = "CLI PYthon PROject GENerator"
+license = {file = "LICENSE"}
+authors = [
+{name = "Artezaru", email = "artezaru.websites@proton.me"}
+]
+classifiers = [
+  "Programming Language :: Python"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pyprogen", "pyprogen*"]
+exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
+
+[project.scripts]
+pyprogen = "pyprogen.__main__:__main__"
+
+[project.gui-scripts]
+pyprogen-gui = "pyprogen.__main__:__main_gui__"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+version = {attr = "pyprogen.__version__.__version__"}
+
+[project.optional-dependencies]
+dev = [
+    "sphinx",
+    "pydata-sphinx-theme",
+    "numpydoc",
+    "pytest",
+    "pyinstaller",
+    "pytest-cov",
+    "bumpver",
+    "pyinstaller"
+]
