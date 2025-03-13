@@ -2,7 +2,54 @@
 
 ## Description
 
-CLI PYthon PROject GENerator
+CLI PYthon PROject GENerator.
+
+Once install on your python environment, running the following ``pyprogen`` command will create a project with thegiven structure:
+
+```
+pyprogen
+├── pyprogen
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── __version__.py
+├── tests
+│   └── __init__.py
+├── examples
+│   └── example.py
+├── laboratory
+│   └── laboratory.py
+├── venv
+├── docs
+│   ├── source
+│   │   ├── conf.py
+│   │   ├── index.rst
+│   │   ├── installation.rst
+│   │   ├── usage.rst
+│   │   └── api.rst
+│   └── build
+│       ├── html
+│       └── latex
+├── .github
+│   └── workflows
+│       └── sphinx.yml
+├── README.md
+├── LICENSE
+├── Makefile
+├── requirements.txt
+├── pyproject.toml
+├── .bumpver.toml
+├── .gitlab-ci.yml
+└── .gitignore
+```
+
+This structure include:
+
+- Virtual Environment
+- pyproject.toml tools
+- Sphinx documentation
+- Deploy documentation
+- Git Repository
+- And tools as bumpver / pyinstaller / pytest / etc ...
 
 ## Authors
 

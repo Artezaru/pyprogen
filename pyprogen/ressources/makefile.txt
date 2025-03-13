@@ -28,7 +28,7 @@ html:
 # 3. Generate LaTeX PDF documentation
 latexpdf:
 	$(SPHINXBUILD) -b latex $(SOURCEDIR) $(BUILDDIR)/latex
-	cd $(BUILDDIR)/latex && pdflatex pyprogen.tex && pdflatex pyprogen.tex
+	cd $(BUILDDIR)/latex && pdflatex {package_name}.tex && pdflatex {package_name}.tex
 
 # 4. Clean the documentation
 clean:
@@ -48,9 +48,9 @@ git:
 
 # 7. Create the application
 app:
-	echo "from pyprogen.__main__ import __main_gui__" > run_gui.py
+	echo "from {package_name}.__main__ import __main_gui__" > run_gui.py
 	echo "__main_gui__()" >> run_gui.py
-	pyinstaller --name pyprogen --onefile --windowed run_gui.py
+	pyinstaller --name {package_name} --onefile --windowed run_gui.py
 	rm run_gui.py
 	rm -rf build
 	rm run_gui.spec

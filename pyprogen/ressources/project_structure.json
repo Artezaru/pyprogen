@@ -1,0 +1,44 @@
+{
+    "{package_name}" : {
+        "{package_name}" : {
+            "__init__.py" : "package_init.txt",
+            "__main__.py" : "package_main.txt",
+            "__version__.py" : "package_version.txt"
+        },
+        "tests" : {
+            "__init__.py" : "tests_init.txt"
+        },
+        "docs" : {
+            "source" : {
+                "conf.py" : "documentation_conf.txt",
+                "index.rst" : "documentation_index.txt",
+                "installation.rst" : "documentation_installation.txt",
+                "usage.rst" : "documentation_usage.txt",
+                "api.rst" : "documentation_api.txt"
+            },
+            "build" : {
+                "html" :{},
+                "latex" : {}
+            }
+        },
+        "examples" : {
+            "example.py" : "example.txt"
+        },
+        "laboratory" : {
+            "laboratory.py" : "laboratory.txt"
+        },
+        ".github" : {
+            "workflows" : {
+                "sphinx.yml" : "sphinx_workflow.txt"
+            }
+        },
+        "README.md" : "readme.txt",
+        "LICENSE" : "license.txt",
+        "Makefile" : "makefile.txt",
+        "requirements.txt" : "requirements.txt",
+        "pyproject.toml" : "pyproject.txt",
+        ".bumpver.toml" : "bumpver.txt",
+        ".gitlab-ci.yml" : "gitlab_ci.txt",
+        ".gitignore" : "gitignore.txt"
+    }
+}

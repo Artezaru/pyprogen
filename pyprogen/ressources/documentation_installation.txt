@@ -1,17 +1,17 @@
 Installation
 ============
 
-To install ``pyprogen``, you can use the following command:
+To install ``{package_name}``, you can use the following command:
 
 .. code-block:: bash
 
-    pip install git+https://github.com/Artezaru/pyprogen.git
+    pip install git+{package_url}
 
 Or clone the repository and install it manually:
 
 .. code-block:: bash
 
-    git clone https://github.com/Artezaru/pyprogen.git
+    git clone {package_url}
 
 Then, go to the directory and run the following command:
 

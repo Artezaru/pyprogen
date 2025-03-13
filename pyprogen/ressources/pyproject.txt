@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{package_name}"
+requires-python = ">= 3.8"
+dynamic = ["dependencies", "version"]
+description = "{package_description}"
+license = {{file = "LICENSE"}}
+authors = {author_toml_str}
+classifiers = [
+  "Programming Language :: Python"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["{package_name}", "{package_name}*"]
+exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
+
+[project.scripts]
+{package_name} = "{package_name}.__main__:__main__"
+
+[project.gui-scripts]
+{package_name}-gui = "{package_name}.__main__:__main_gui__"
+
+[tool.setuptools.dynamic]
+dependencies = {{file = ["requirements.txt"]}}
+version = {{attr = "{package_name}.__version__.__version__"}}
+
+[project.optional-dependencies]
+dev = [
+    "sphinx",
+    "pydata-sphinx-theme",
+    "numpydoc",
+    "pytest",
+    "pyinstaller",
+    "pytest-cov",
+    "bumpver",
+    "pyinstaller"
+]
