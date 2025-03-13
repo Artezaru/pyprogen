@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project structure &#8212; pyprogen 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage_doc/project_structure';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Managing virtual environments" href="managing_venv.html" />
+    <link rel="prev" title="Quick Start" href="quick_start.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pyprogen 1.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../usage.html">
+    Usage
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Project structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_venv.html">Managing virtual environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_module.html">Adding Functions to the Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_doc.html">Writing and Generating Documentation for the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running Tests Before Pushing the Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_and_push.html">Git Commit and Push</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_command.html">Create a Command for Your Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_executable.html">Create an executable</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../usage.html" class="nav-link">Usage</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Project structure</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="project-structure">
+<h1>Project structure<a class="headerlink" href="#project-structure" title="Link to this heading">#</a></h1>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading">#</a></h2>
+<p>Once you have created a new project using the CLI (see the <a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a> section), the project will have the following structure:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pyprogen</span>
+<span class="go"> ├── pyprogen</span>
+<span class="go"> │   ├── __init__.py</span>
+<span class="go"> │   ├── __main__.py</span>
+<span class="go"> │   ├── __version__.py</span>
+<span class="go"> ├── tests</span>
+<span class="go"> │   └── __init__.py</span>
+<span class="go"> ├── examples</span>
+<span class="go"> │   └── example.py</span>
+<span class="go"> ├── laboratory</span>
+<span class="go"> │   └── laboratory.py</span>
+<span class="go"> ├── venv</span>
+<span class="go"> ├── docs</span>
+<span class="go"> │   ├── source</span>
+<span class="go"> │   │   ├── conf.py</span>
+<span class="go"> │   │   ├── index.rst</span>
+<span class="go"> │   │   ├── installation.rst</span>
+<span class="go"> │   │   ├── usage.rst</span>
+<span class="go"> │   │   └── api.rst</span>
+<span class="go"> │   └── build</span>
+<span class="go"> │       ├── html</span>
+<span class="go"> │       └── latex</span>
+<span class="go"> ├── .github</span>
+<span class="go"> │   └── workflows</span>
+<span class="go"> │       └── sphinx.yml</span>
+<span class="go"> ├── README.md</span>
+<span class="go"> ├── LICENSE</span>
+<span class="go"> ├── Makefile</span>
+<span class="go"> ├── requirements.txt</span>
+<span class="go"> ├── pyproject.toml</span>
+<span class="go"> ├── .bumpver.toml</span>
+<span class="go"> ├── .gitlab-ci.yml</span>
+<span class="go"> └── .gitignore</span>
+</pre></div>
+</div>
+</section>
+<section id="project-components">
+<h2>Project Components<a class="headerlink" href="#project-components" title="Link to this heading">#</a></h2>
+<section id="pyprogen">
+<h3>pyprogen<a class="headerlink" href="#pyprogen" title="Link to this heading">#</a></h3>
+<p>The <strong>pyprogen</strong> directory is the main package of the project.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> — Initializes the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__main__.py</span></code> — Entry point if the package is executed directly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> — Contains the package version information.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To correctly add new modules, refer to the <a class="reference internal" href="create_module.html"><span class="doc">Adding Functions to the Package</span></a> section.</p>
+</div>
+</section>
+<section id="tests">
+<h3>tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h3>
+<p>The <strong>tests</strong> directory contains unit tests for the project, ensuring code correctness and reliability.
+The module <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is installed to run the tests.</p>
+</section>
+<section id="examples">
+<h3>examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p>The <strong>examples</strong> directory includes practical examples demonstrating how to use the package.</p>
+</section>
+<section id="laboratory">
+<h3>laboratory<a class="headerlink" href="#laboratory" title="Link to this heading">#</a></h3>
+<p>A <strong>sandbox environment</strong> for experiments and feature testing.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This folder is <strong>not versioned</strong> by Git. It serves as a local space for testing new features and prototypes.</p>
+</div>
+</section>
+<section id="venv">
+<h3>venv<a class="headerlink" href="#venv" title="Link to this heading">#</a></h3>
+<p>The <strong>venv</strong> directory contains the project’s virtual environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To activate the virtual environment, see the <a class="reference internal" href="managing_venv.html"><span class="doc">Managing virtual environments</span></a> section.</p>
+</div>
+</section>
+<section id="docs">
+<h3>docs<a class="headerlink" href="#docs" title="Link to this heading">#</a></h3>
+<p>The <strong>docs</strong> directory holds the project’s documentation.</p>
+<ul class="simple">
+<li><p><strong>source/</strong> — Sphinx source files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> — Sphinx configuration file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> — Main documentation index.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">api.rst</span></code> — API reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usage.rst</span></code> — Usage instructions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">installation.rst</span></code> — Installation guide.</p></li>
+<li><p><strong>build/</strong> — Generated documentation output.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add or update the documentation, refer to the <a class="reference internal" href="generating_doc.html"><span class="doc">Writing and Generating Documentation for the Project</span></a> section.</p>
+</div>
+</section>
+</section>
+<section id="other-files">
+<h2>Other Files<a class="headerlink" href="#other-files" title="Link to this heading">#</a></h2>
+<section id="gitignore">
+<h3>.gitignore<a class="headerlink" href="#gitignore" title="Link to this heading">#</a></h3>
+<p>Specifies files and directories that Git should ignore.</p>
+</section>
+<section id="readme-md">
+<h3>README.md<a class="headerlink" href="#readme-md" title="Link to this heading">#</a></h3>
+<p>Provides a general overview and description of the project.</p>
+</section>
+<section id="requirements-txt">
+<h3>requirements.txt<a class="headerlink" href="#requirements-txt" title="Link to this heading">#</a></h3>
+<p>Lists all the dependencies required by the project.</p>
+</section>
+<section id="makefile">
+<h3>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">#</a></h3>
+<p>Contains commands to build and manage the project.</p>
+<p>The available commands are:</p>
+<ul class="simple">
+<li><p><strong>help</strong> — Show the available commands.</p></li>
+<li><p><strong>html</strong> — Generate HTML documentation with Sphinx.</p></li>
+<li><p><strong>latexpdf</strong> — Generate LaTeX PDF documentation with Sphinx.</p></li>
+<li><p><strong>clean</strong> — Clean the documentation build directory.</p></li>
+<li><p><strong>bump</strong> — Update the package version.</p></li>
+<li><p><strong>git</strong> — Commit and push changes to the master branch.</p></li>
+<li><p><strong>app</strong> — Build the application with PyInstaller.</p></li>
+<li><p><strong>test</strong> — Run the tests with pytest.</p></li>
+</ul>
+</section>
+<section id="license">
+<h3>LICENSE<a class="headerlink" href="#license" title="Link to this heading">#</a></h3>
+<p>Specifies the terms under which the project is licensed.</p>
+</section>
+<section id="pyproject-toml">
+<h3>pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Link to this heading">#</a></h3>
+<p>Defines the project’s metadata and dependencies to install the package.</p>
+</section>
+<section id="bumpver-toml">
+<h3>.bumpver.toml<a class="headerlink" href="#bumpver-toml" title="Link to this heading">#</a></h3>
+<p>Contains the configuration for the version bumping process.</p>
+</section>
+<section id="gitlab-ci-yml">
+<h3>.gitlab-ci.yml<a class="headerlink" href="#gitlab-ci-yml" title="Link to this heading">#</a></h3>
+<p>Configuration file for GitLab CI/CD.</p>
+</section>
+<section id="github-workflows-sphinx-yml">
+<h3>.github/workflows/sphinx.yml<a class="headerlink" href="#github-workflows-sphinx-yml" title="Link to this heading">#</a></h3>
+<p>Configuration file for GitHub Actions.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quick_start.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="managing_venv.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Managing virtual environments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure">Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-components">Project Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyprogen">pyprogen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory">laboratory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#venv">venv</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docs">docs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-files">Other Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitignore">.gitignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readme-md">README.md</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-txt">requirements.txt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile">Makefile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#license">LICENSE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyproject-toml">pyproject.toml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bumpver-toml">.bumpver.toml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gitlab-ci-yml">.gitlab-ci.yml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-workflows-sphinx-yml">.github/workflows/sphinx.yml</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/usage_doc/project_structure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025-%Y, Artezaru.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

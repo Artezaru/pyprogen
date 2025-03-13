@@ -17,5 +17,7 @@ Then, go to the directory and run the following command:
 
 .. code-block:: bash
 
-    pip install -e .[dev]
+    pip install -e .
+
+Use ``-e .[dev]`` to install it with the development dependencies.
 
