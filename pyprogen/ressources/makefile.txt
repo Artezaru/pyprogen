@@ -4,7 +4,7 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = docs/source
 BUILDDIR      = docs/build
 
-message ?= "Default commit message"
+message ?= Default-commit-message
 level ?= patch
 
 # 1. Default help command to list available Sphinx options

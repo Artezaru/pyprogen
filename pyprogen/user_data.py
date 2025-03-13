@@ -16,7 +16,7 @@ class UserData(object):
 
         {
             "author_names": [
-                {name = "John Doe", email = "john.doe@example.com"}
+                {"name" : "John Doe", "email" : "john.doe@example.com"}
             ],
             "venv": true,
             "platform": "github",
