@@ -22,7 +22,7 @@ include = ["{package_name}", "{package_name}*"]
 exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
 
 [tool.setuptools.package-data]
-{package_name} = ["{package_name}/*"]
+"{package_name}.ressources" = ["*"]
 
 [project.scripts]
 {package_name} = "{package_name}.__main__:__main__"

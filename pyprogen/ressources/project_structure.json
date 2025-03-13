@@ -3,7 +3,10 @@
         "{package_name}" : {
             "__init__.py" : "package_init.txt",
             "__main__.py" : "package_main.txt",
-            "__version__.py" : "package_version.txt"
+            "__version__.py" : "package_version.txt",
+            "ressources" : {
+                "__init__.py" : "ressources_init.txt"
+            }
         },
         "tests" : {
             "__init__.py" : "tests_init.txt"
