@@ -12,6 +12,8 @@ pyprogen
 │   ├── __init__.py
 │   ├── __main__.py
 │   ├── __version__.py
+│   ├── ressources
+│   │   ├── __init__.py
 ├── tests
 │   └── __init__.py
 ├── examples

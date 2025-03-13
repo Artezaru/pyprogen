@@ -13,6 +13,8 @@ Once you have created a new project using the CLI (see the :doc:`quick_start` se
     │   ├── __init__.py
     │   ├── __main__.py
     │   ├── __version__.py
+    |   └── ressources
+    |        └── __init__.py
     ├── tests
     │   └── __init__.py
     ├── examples
@@ -59,6 +61,11 @@ The **pyprogen** directory is the main package of the project.
 .. note::
 
    To correctly add new modules, refer to the :doc:`create_module` section.
+
+ressources
+~~~~~~~~~~
+
+The **ressources** directory contains additional resources for the package.
 
 tests
 ~~~~~
