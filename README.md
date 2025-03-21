@@ -55,7 +55,7 @@ This structure include:
 
 ## Authors
 
-- Artezaru <artezaru.websites@proton.me>
+- Artezaru <artezaru.github@proton.me>
 
 - **Git Plateform**: https://github.com/Artezaru/pyprogen.git
 - **Online Documentation**: https://Artezaru.github.io/pyprogen
