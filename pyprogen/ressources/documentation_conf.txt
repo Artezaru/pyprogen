@@ -22,8 +22,9 @@ def read_version():
         exec(file.read()) 
     return locals()["__version__"]
 
+import datetime
 project = "{package_name}"
-copyright = "{package_year}-%Y, {first_author}"
+copyright = f"{package_year}-{{datetime.datetime.now().year}}, {first_author}"
 author = "{first_author}"
 release = read_version()
 
